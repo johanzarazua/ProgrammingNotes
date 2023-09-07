@@ -1,0 +1,238 @@
+idle> @s-02-tablespaces.sql
+Conectando como sys
+Connected.
+
+                                                                                                                                                                                                                                                                    
+
+Realizando limpieza
+old   9:   select count(*) into v_count from dba_users where username = upper('&labUser');
+new   9:   select count(*) into v_count from dba_users where username = upper('m05_911_user');
+old  11:     dbms_output.put_line('Eliminando usuario &labUser');
+new  11:     dbms_output.put_line('Eliminando usuario m05_911_user');
+old  12:     execute immediate 'drop user &labUser cascade';
+new  12:     execute immediate 'drop user m05_911_user cascade';
+Eliminando usuario m05_911_user                                                                                                                                                                                                                                     
+Eliminando M05_911_IX_TS                                                                                                                                                                                                                                            
+Eliminando M05_911_TS                                                                                                                                                                                                                                               
+
+PL/SQL procedure successfully completed.
+
+1. Creando tablespaces.
+creando tablespace m05_911_ts
+
+Tablespace created.
+
+creando tablespace m05_911_ix_ts
+
+Tablespace created.
+
+Consultando tablespaces creados
+
+TABLESPACE_NAME                STATUS    CONTENTS                                                                                                                                                                                                                   
+------------------------------ --------- ---------------------                                                                                                                                                                                                      
+M05_911_IX_TS                  ONLINE    PERMANENT                                                                                                                                                                                                                  
+M05_911_TS                     ONLINE    PERMANENT                                                                                                                                                                                                                  
+
+2. CReando usuario m05_911_user
+old   1: create user &labUser identified by &labUser
+new   1: create user m05_911_user identified by m05_911_user
+
+User created.
+
+old   1: grant create session, create table, create procedure to &labUser
+new   1: grant create session, create table, create procedure to m05_911_user
+
+Grant succeeded.
+
+3. Creacion de directorio para tabla externa.
+
+Directory created.
+
+old   1: grant read,write on directory ext_tab_data to &labUser
+new   1: grant read,write on directory ext_tab_data to m05_911_user
+
+Grant succeeded.
+
+Conectando como m05_911_user
+Connected.
+
+                                                                                                                                                                                                                                                                    
+
+creando tabla externa
+
+Table created.
+
+realizando prueba en tabla externa
+
+ADDRESS                                            TYPE                                               CALL_TS              LATITUDE  LONGITUDE REPORT_LOCATION                          INCIDENT_NUM                                                                
+-------------------------------------------------- -------------------------------------------------- ------------------ ---------- ---------- ---------------------------------------- ------------                                                                
+904 7th Av                                         Car Fire                                           22-MAY-19             47.6069 -122.32905 POINT (-122.329051 47.6069)              F190051945                                                                  
+9610 53rd Av S                                     Aid Response                                       22-MAY-19           47.515984 -122.26653 POINT (-122.266529 47.515984)            F190051946                                                                  
+106 Pike St                                        Aid Response                                       22-MAY-19           47.608849 -122.33995 POINT (-122.339945 47.608849)            F190051950                                                                  
+1902 2nd Av                                        Aid Response                                       01-JUL-19           47.610972 -122.34047 POINT (-122.340465 47.610972)            F190068848                                                                  
+4737 Roosevelt Way Ne                              Unk Odor                                           01-JUL-19           47.663338 -122.31742 POINT (-122.317421 47.663338)            F190068849                                                                  
+6935 Fauntleroy Way Sw                             Auto Fire Alarm                                    17-MAR-20            47.54133 -122.39004 POINT (-122.390043 47.54133)             F200027234                                                                  
+2523 25th Av W                                     Triaged Incident                                   20-OCT-19            47.64167 -122.38897 POINT (-122.388965 47.64167)             F190112236                                                                  
+2416 34th Av W                                     Medic Response                                     20-OCT-19           47.639859   -122.401 POINT (-122.400995 47.639859)            F190112168                                                                  
+2917 S Snoqualmie St                               Rescue Elevator                                    20-OCT-19           47.561509 -122.29496 POINT (-122.29496 47.561509)             F190112166                                                                  
+1700 17th Av                                       Medic Response                                     20-OCT-19           47.616443 -122.31015 POINT (-122.310151 47.616443)            F190112167                                                                  
+
+10 rows selected.
+
+[Enter] para crear tabla permanente
+
+Creando tabla permanente
+
+Table created.
+
+creando indices
+
+Index created.
+
+
+Index created.
+
+insertando registros de tabla tenporal en tabla permanente
+
+449999 rows created.
+
+
+Commit complete.
+
+4. Realizando consultas
+conectando como sys
+Connected.
+
+                                                                                                                                                                                                                                                                    
+
+cnsultando segmentos
+
+TABLESPACE_NAME                SEGMENT_NAME                                                                                                                        EXTENTS MB_RESERVADOS                                                                            
+------------------------------ -------------------------------------------------------------------------------------------------------------------------------- ---------- -------------                                                                            
+M05_911_TS                     LLAMADA_911                                                                                                                              66            51                                                                            
+M05_911_IX_TS                  INCIDENT_NUMBER_IX                                                                                                                       25            10                                                                            
+M05_911_IX_TS                  ADDRESS_IX                                                                                                                               28            13                                                                            
+
+consultando datfiles
+
+TABLESPACE_NAME                   FILE_ID FILE_NAME                                                                 SIZE_MB     BLOCKS ONLINE_ AUT                                                                                                                  
+------------------------------ ---------- ---------------------------------------------------------------------- ---------- ---------- ------- ---                                                                                                                  
+M05_911_TS                              6 /unam-diplomado-bd/u21/app/oracle/oradata/JZRDIP02/m05_911_ts_01.dbf           15       1920 ONLINE  NO                                                                                                                   
+M05_911_TS                              7 /unam-diplomado-bd/u22/app/oracle/oradata/JZRDIP02/m05_911_ts_02.dbf           15       1920 ONLINE  NO                                                                                                                   
+M05_911_TS                              8 /unam-diplomado-bd/u23/app/oracle/oradata/JZRDIP02/m05_911_ts_03.dbf           15       1920 ONLINE  NO                                                                                                                   
+M05_911_TS                              9 /unam-diplomado-bd/u24/app/oracle/oradata/JZRDIP02/m05_911_ts_04.dbf           15       1920 ONLINE  NO                                                                                                                   
+M05_911_TS                             10 /unam-diplomado-bd/u25/app/oracle/oradata/JZRDIP02/m05_911_ts_05.dbf           15       1920 ONLINE  NO                                                                                                                   
+M05_911_IX_TS                          11 /unam-diplomado-bd/u31/app/oracle/oradata/JZRDIP02/m05_911_ts_05.dbf           24       3072 ONLINE  YES                                                                                                                  
+
+6 rows selected.
+
+consultando segmentos, extensiones y datfiles
+
+TABLESPACE_NAME                SEGMENT_NAME                                                                                                                     FILE_NAME                                                              SUM(S.EXTENTS)               
+------------------------------ -------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------- --------------               
+M05_911_TS                     LLAMADA_911                                                                                                                      /unam-diplomado-bd/u23/app/oracle/oradata/JZRDIP02/m05_911_ts_03.dbf               66               
+M05_911_TS                     LLAMADA_911                                                                                                                      /unam-diplomado-bd/u24/app/oracle/oradata/JZRDIP02/m05_911_ts_04.dbf               66               
+M05_911_TS                     LLAMADA_911                                                                                                                      /unam-diplomado-bd/u21/app/oracle/oradata/JZRDIP02/m05_911_ts_01.dbf               66               
+M05_911_TS                     LLAMADA_911                                                                                                                      /unam-diplomado-bd/u22/app/oracle/oradata/JZRDIP02/m05_911_ts_02.dbf               66               
+M05_911_TS                     LLAMADA_911                                                                                                                      /unam-diplomado-bd/u25/app/oracle/oradata/JZRDIP02/m05_911_ts_05.dbf               66               
+M05_911_IX_TS                  INCIDENT_NUMBER_IX                                                                                                               /unam-diplomado-bd/u31/app/oracle/oradata/JZRDIP02/m05_911_ts_05.dbf               25               
+M05_911_IX_TS                  ADDRESS_IX                                                                                                                       /unam-diplomado-bd/u31/app/oracle/oradata/JZRDIP02/m05_911_ts_05.dbf               28               
+
+7 rows selected.
+
+5. Proceso de administracion.
+5.1 Colocando en modo offline el datafile 1 de m05_911_ts
+
+Database altered.
+
+5.2 Colocando el tablespace m05_911_ts para labores adminstrativas
+Media recovery complete.
+
+Database altered.
+
+
+Tablespace altered.
+
+5.3 Intentando insertar un registro con el usuario m05_911_user, se espera error
+Connected.
+
+                                                                                                                                                                                                                                                                    
+
+  llamada_911(address, type, call_ts, latitude, longitude, report_location, incident_number)
+  *
+ERROR at line 2:
+ORA-00376: file 10 cannot be read at this time
+ORA-01110: data file 10: '/unam-diplomado-bd/u25/app/oracle/oradata/JZRDIP02/m05_911_ts_05.dbf' 
+
+
+5.4 Consultando estado de datfiles
+Connected.
+
+                                                                                                                                                                                                                                                                    
+
+
+TABLESPACE_NAME                   FILE_ID FILE_NAME                                                              ONLINE_                                                                                                                                            
+------------------------------ ---------- ---------------------------------------------------------------------- -------                                                                                                                                            
+M05_911_TS                              6 /unam-diplomado-bd/u21/app/oracle/oradata/JZRDIP02/m05_911_ts_01.dbf   OFFLINE                                                                                                                                            
+M05_911_TS                              7 /unam-diplomado-bd/u22/app/oracle/oradata/JZRDIP02/m05_911_ts_02.dbf   OFFLINE                                                                                                                                            
+M05_911_TS                              8 /unam-diplomado-bd/u23/app/oracle/oradata/JZRDIP02/m05_911_ts_03.dbf   OFFLINE                                                                                                                                            
+M05_911_TS                              9 /unam-diplomado-bd/u24/app/oracle/oradata/JZRDIP02/m05_911_ts_04.dbf   OFFLINE                                                                                                                                            
+M05_911_TS                             10 /unam-diplomado-bd/u25/app/oracle/oradata/JZRDIP02/m05_911_ts_05.dbf   OFFLINE                                                                                                                                            
+
+6. Reubicando datafiles
+Modo offline
+moviendo archivos en S.O.
+
+
+
+
+
+modficando nombre en BD
+alter tablespace m05_911_ts
+*
+ERROR at line 1:
+ORA-01525: error in renaming data files
+ORA-01141: error renaming data file 6 - new file '/unam-diplomado-bd/u25/app/oracle/oradata/JZRDIP02/m05_911_ts_a.dbf' not found
+ORA-01110: data file 6: '/unam-diplomado-bd/u21/app/oracle/oradata/JZRDIP02/m05_911_ts_01.dbf'
+ORA-27037: unable to obtain file status
+Linux-x86_64 Error: 2: No such file or directory
+Additional information: 7 
+
+
+colocnaod ts en modo online
+
+Tablespace altered.
+
+modo online
+    '/unam-diplomado-bd/u25/app/oracle/oradata/JZRDIP02/m05_911_ts_a.dbf',
+                                                                         *
+ERROR at line 3:
+ORA-02231: missing or invalid option to ALTER DATABASE 
+
+
+reconsttuyendo indices
+old   1: alter index &labUser..incident_number_ix rebuild
+new   1: alter index m05_911_user.incident_number_ix rebuild
+alter index m05_911_user.incident_number_ix rebuild
+*
+ERROR at line 1:
+ORA-01652: unable to extend temp segment by 128 in tablespace M05_911_IX_TS 
+
+
+old   1: alter index &labUser..address_ix rebuild
+new   1: alter index m05_911_user.address_ix rebuild
+alter index m05_911_user.address_ix rebuild
+*
+ERROR at line 1:
+ORA-01652: unable to extend temp segment by 128 in tablespace M05_911_IX_TS 
+
+
+consultando datos de la tabla
+old   1: select count(*) from &labUser..llamada_911
+new   1: select count(*) from m05_911_user.llamada_911
+
+  COUNT(*)                                                                                                                                                                                                                                                          
+----------                                                                                                                                                                                                                                                          
+    449999                                                                                                                                                                                                                                                          
+
+listo!!!

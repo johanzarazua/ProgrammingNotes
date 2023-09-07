@@ -1,0 +1,154 @@
+1. Conectando con el usuario user06
+Connected.
+
+                                                                                                                                                                                                                  
+
+Creando la tabla venta
+
+Table created.
+
+
+PL/SQL procedure successfully completed.
+
+2. Configurando la tabla para regresarla ern el tiempo
+
+Table altered.
+
+3. Tomando el scn actual y el tiempo
+
+FECHAHORA1                SCN1                                                                                                                                                                                    
+------------------- ----------                                                                                                                                                                                    
+04-02-2023 23:33:30    5682876                                                                                                                                                                                    
+
+
+PL/SQL procedure successfully completed.
+
+4. Agregando el primer registro a la tabla
+registro 1
+
+1 row created.
+
+
+Commit complete.
+
+
+   IDVENTA      MONTO                                                                                                                                                                                             
+---------- ----------                                                                                                                                                                                             
+         1       1300                                                                                                                                                                                             
+
+
+PL/SQL procedure successfully completed.
+
+5. Tomando el scn actual y el tiempo
+
+FECHAHORA2                SCN2                                                                                                                                                                                    
+------------------- ----------                                                                                                                                                                                    
+04-02-2023 23:33:41    5682899                                                                                                                                                                                    
+
+6. Agregando el segundo registro a la tabla
+registro 2
+
+1 row created.
+
+
+Commit complete.
+
+
+   IDVENTA      MONTO                                                                                                                                                                                             
+---------- ----------                                                                                                                                                                                             
+         1       1300                                                                                                                                                                                             
+         2       1500                                                                                                                                                                                             
+
+
+PL/SQL procedure successfully completed.
+
+Tomando el scn actual y el tiempo
+
+FECHAHORA3                SCN3                                                                                                                                                                                    
+------------------- ----------                                                                                                                                                                                    
+04-02-2023 23:33:47    5682903                                                                                                                                                                                    
+
+Agregando el tercer registro a la tabla
+registro 3
+
+1 row created.
+
+
+Commit complete.
+
+
+   IDVENTA      MONTO                                                                                                                                                                                             
+---------- ----------                                                                                                                                                                                             
+         1       1300                                                                                                                                                                                             
+         2       1500                                                                                                                                                                                             
+         3        500                                                                                                                                                                                             
+
+
+PL/SQL procedure successfully completed.
+
+Tomando el scn actual y el tiempo
+
+FECHAHORA4                SCN4                                                                                                                                                                                    
+------------------- ----------                                                                                                                                                                                    
+04-02-2023 23:33:52    5682907                                                                                                                                                                                    
+
+7. Mostrar el contenido actual de la tabla
+
+   IDVENTA      MONTO                                                                                                                                                                                             
+---------- ----------                                                                                                                                                                                             
+         1       1300                                                                                                                                                                                             
+         2       1500                                                                                                                                                                                             
+         3        500                                                                                                                                                                                             
+
+Elimianndo el contenido de la tabla
+
+3 rows deleted.
+
+
+Commit complete.
+
+Mostrando los cambios
+
+no rows selected
+
+
+PL/SQL procedure successfully completed.
+
+8. Tomando el scn actual y el tiempo
+
+FECHAHORA5                SCN5                                                                                                                                                                                    
+------------------- ----------                                                                                                                                                                                    
+04-02-2023 23:33:58    5682910                                                                                                                                                                                    
+
+9. Restaurando el contenido de la tabla en algún punto
+Con scn
+Enter value for scn: 5682903
+old   1: flashback table venta to scn &scn
+new   1: flashback table venta to scn 5682903
+
+Flashback complete.
+
+
+   IDVENTA      MONTO                                                                                                                                                                                             
+---------- ----------                                                                                                                                                                                             
+         1       1300                                                                                                                                                                                             
+         2       1500                                                                                                                                                                                             
+
+con fechaHora
+Enter value for fechahora: 04-02-2023 23:33:41
+old   1: flashback table venta to timestamp to_timestamp('&fechaHora', 'dd-mm-yyyy hh24:mi:ss')
+new   1: flashback table venta to timestamp to_timestamp('04-02-2023 23:33:41', 'dd-mm-yyyy hh24:mi:ss')
+
+Flashback complete.
+
+
+   IDVENTA      MONTO                                                                                                                                                                                             
+---------- ----------                                                                                                                                                                                             
+         1       1300                                                                                                                                                                                             
+
+Mostrando el contenido de la tabla venta
+
+   IDVENTA      MONTO                                                                                                                                                                                             
+---------- ----------                                                                                                                                                                                             
+         1       1300                                                                                                                                                                                             
+

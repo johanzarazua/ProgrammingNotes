@@ -1,0 +1,108 @@
+idle> @e-13-archive-mode.sql
+Conectando como sysdba
+Connected.
+
+                                                                                                                                                                                  
+
+1. REalizando respaldo del spfile
+
+File created.
+
+Configurando parámetros
+
+System altered.
+
+
+System altered.
+
+
+System altered.
+
+
+System altered.
+
+
+System altered.
+
+Confirmando cambios
+
+SID      NAME                          TYPE        VALUE                                                                                                                          
+-------- ----------------------------- ----------- ----------------------------                                                                                                   
+*        log_archive_max_processes     integer     5                                                                                                                              
+
+SID      NAME                          TYPE        VALUE                                                                                                                          
+-------- ----------------------------- ----------- ----------------------------                                                                                                   
+*        log_archive_dest_1            string      LOCATION=/unam-diplomado-bd/                                                                                                   
+                                                   disk-04/JZRDIP02/archlogs                                                                                                      
+                                                   MANDATORY                                                                                                                      
+*        log_archive_dest_10           string                                                                                                                                     
+*        log_archive_dest_11           string                                                                                                                                     
+*        log_archive_dest_12           string                                                                                                                                     
+*        log_archive_dest_13           string                                                                                                                                     
+*        log_archive_dest_14           string                                                                                                                                     
+*        log_archive_dest_15           string                                                                                                                                     
+*        log_archive_dest_16           string                                                                                                                                     
+*        log_archive_dest_17           string                                                                                                                                     
+*        log_archive_dest_18           string                                                                                                                                     
+*        log_archive_dest_19           string                                                                                                                                     
+
+SID      NAME                          TYPE        VALUE                                                                                                                          
+-------- ----------------------------- ----------- ----------------------------                                                                                                   
+*        log_archive_dest_2            string      LOCATION=/unam-diplomado-bd/                                                                                                   
+                                                   disk-05/JZRDIP02/archlogs                                                                                                      
+*        log_archive_dest_20           string                                                                                                                                     
+*        log_archive_dest_21           string                                                                                                                                     
+*        log_archive_dest_22           string                                                                                                                                     
+*        log_archive_dest_23           string                                                                                                                                     
+*        log_archive_dest_24           string                                                                                                                                     
+*        log_archive_dest_25           string                                                                                                                                     
+*        log_archive_dest_26           string                                                                                                                                     
+*        log_archive_dest_27           string                                                                                                                                     
+*        log_archive_dest_28           string                                                                                                                                     
+*        log_archive_dest_29           string                                                                                                                                     
+
+SID      NAME                          TYPE        VALUE                                                                                                                          
+-------- ----------------------------- ----------- ----------------------------                                                                                                   
+*        log_archive_format            string      arch_%t_%s_%r.arc                                                                                                              
+
+SID      NAME                          TYPE        VALUE                                                                                                                          
+-------- ----------------------------- ----------- ----------------------------                                                                                                   
+*        log_archive_min_succeed_dest  integer     1                                                                                                                              
+Revisar [enter]
+
+3. Reiniciando la isntancia en modo mount
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                                         
+Fixed Size                  8901696 bytes                                                                                                                                         
+Variable Size             574619648 bytes                                                                                                                                         
+Database Buffers          109051904 bytes                                                                                                                                         
+Redo Buffers                7872512 bytes                                                                                                                                         
+In-Memory Area            104857600 bytes                                                                                                                                         
+Database mounted.
+Cambiar a modo archive [enter]
+
+
+Database altered.
+
+4. Abriendo BD en modo open
+
+Database altered.
+
+5. Comprobando modo archive
+Database log mode              Archive Mode
+Automatic archival             Enabled
+Archive destination            /unam-diplomado-bd/disk-05/JZRDIP02/archlogs
+Oldest online log sequence     198
+Next log sequence to archive   200
+Current log sequence           200
+6. Respaldando spfile
+
+File created.
+
+7. Mostrando procesos ARCn
+
+sys@jzrdip02> exit

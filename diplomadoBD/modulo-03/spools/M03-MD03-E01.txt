@@ -1,0 +1,161 @@
+idle> @s-03-shutdown.sql
+conectando como sys
+Connected.
+
+                                                                                                                                                                                            
+
+validando existencia de usuario
+
+PL/SQL procedure successfully completed.
+
+creando usuario y asignando privilegios
+
+User created.
+
+
+Grant succeeded.
+
+
+Session altered.
+
+ejecutar los 4 escripts (a,b,c,d) cada uno en una terminal [enter para continuar]
+
+mostrando los datos de las sesiones
+
+       SID    SERIAL# USERNAME   LOGON_TIME          XID              START_DATE                                                                                                            
+---------- ---------- ---------- ------------------- ---------------- -------------------                                                                                                   
+        15      42098 USER01     06/11/2022 11:38:42 03001A003D030000 06/11/2022 11:40:03                                                                                                   
+       178       6424 USER01     06/11/2022 11:38:35                                                                                                                                        
+       247      25096 SYS        06/11/2022 11:32:28                                                                                                                                        
+       263      28691 USER01     06/11/2022 11:38:49                                                                                                                                        
+       262      61681 USER01     06/11/2022 11:38:38                                                                                                                                        
+        90      34024 SYS        06/11/2022 11:38:26                                                                                                                                        
+
+6 rows selected.
+
+
+haciendo shutdown abort
+ORACLE instance shut down.
+Que sucedio en las terminales? [Enter] para inicar la instancia
+todas las sesiones fueron cerrada y la base se detuvo
+
+inciando la instancia
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                                                   
+Fixed Size                  8901696 bytes                                                                                                                                                   
+Variable Size             562036736 bytes                                                                                                                                                   
+Database Buffers          121634816 bytes                                                                                                                                                   
+Redo Buffers                7872512 bytes                                                                                                                                                   
+In-Memory Area            104857600 bytes                                                                                                                                                   
+Database mounted.
+Database opened.
+ejecutar los 4 escripts (a,b,c,d) cada uno en una terminal [enter para continuar]
+
+mostrando los datos de las sesiones
+
+       SID    SERIAL# USERNAME   LOGON_TIME         XID              START_DATE                                                                                                             
+---------- ---------- ---------- ------------------ ---------------- ------------------                                                                                                     
+        19      46334 USER01     06-NOV-22          0600120099030000 06-NOV-22                                                                                                              
+       265      49428 USER01     06-NOV-22                                                                                                                                                  
+        10      15712 SYS        06-NOV-22                                                                                                                                                  
+        97       6641 USER01     06-NOV-22                                                                                                                                                  
+       180      10499 USER01     06-NOV-22                                                                                                                                                  
+       247      42594 SYS        06-NOV-22                                                                                                                                                  
+
+6 rows selected.
+
+
+haciendo shutdown immediate
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+Que sucedio en las terminales? [Enter] para inicar la instancia
+de nuevo las sesiones de las terminales se cerraron automaticamente y se detuvo la BD
+
+inciando la instancia
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                                                   
+Fixed Size                  8901696 bytes                                                                                                                                                   
+Variable Size             562036736 bytes                                                                                                                                                   
+Database Buffers          121634816 bytes                                                                                                                                                   
+Redo Buffers                7872512 bytes                                                                                                                                                   
+In-Memory Area            104857600 bytes                                                                                                                                                   
+Database mounted.
+Database opened.
+ejecutar los 4 escripts (a,b,c,d) cada uno en una terminal [enter para continuar]
+
+mostrando los datos de las sesiones
+
+       SID    SERIAL# USERNAME   LOGON_TIME         XID              START_DATE                                                                                                             
+---------- ---------- ---------- ------------------ ---------------- ------------------                                                                                                     
+        18      30742 USER01     06-NOV-22          070017008F030000 06-NOV-22                                                                                                              
+       178      22119 USER01     06-NOV-22                                                                                                                                                  
+        98      34861 USER01     06-NOV-22                                                                                                                                                  
+         3       4091 SYS        06-NOV-22                                                                                                                                                  
+        89       9858 SYS        06-NOV-22                                                                                                                                                  
+       261      55605 USER01     06-NOV-22                                                                                                                                                  
+
+6 rows selected.
+
+
+haciendo shutdown transactional
+Que cambios se tendrian que hacer oara que shutdown transactional termine?
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+Que sucedio en las terminales? [Enter] para inicar la instancia
+una vez que se termina la transaccion existente la base se detiene y cierra las sesiones que existen
+
+inciando la instancia
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                                                   
+Fixed Size                  8901696 bytes                                                                                                                                                   
+Variable Size             562036736 bytes                                                                                                                                                   
+Database Buffers          121634816 bytes                                                                                                                                                   
+Redo Buffers                7872512 bytes                                                                                                                                                   
+In-Memory Area            104857600 bytes                                                                                                                                                   
+Database mounted.
+Database opened.
+ejecutar los 4 escripts (a,b,c,d) cada uno en una terminal [enter para continuar]
+
+mostrando los datos de las sesiones
+
+       SID    SERIAL# USERNAME   LOGON_TIME         XID              START_DATE                                                                                                             
+---------- ---------- ---------- ------------------ ---------------- ------------------                                                                                                     
+        17        228 USER01     06-NOV-22          01001500D1030000 06-NOV-22                                                                                                              
+       262       6429 USER01     06-NOV-22                                                                                                                                                  
+        89      12017 SYS        06-NOV-22                                                                                                                                                  
+        96      14772 USER01     06-NOV-22                                                                                                                                                  
+       247      27111 SYS        06-NOV-22                                                                                                                                                  
+       179       7799 USER01     06-NOV-22                                                                                                                                                  
+
+6 rows selected.
+
+
+haciendo shutdown normal
+Que cambios se tendrian que hacer oara que shutdown normal termine?
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+Que sucedio en las terminales? [Enter] para inicar la instancia
+
+
+inciando la instancia
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                                                   
+Fixed Size                  8901696 bytes                                                                                                                                                   
+Variable Size             562036736 bytes                                                                                                                                                   
+Database Buffers          121634816 bytes                                                                                                                                                   
+Redo Buffers                7872512 bytes                                                                                                                                                   
+In-Memory Area            104857600 bytes                                                                                                                                                   
+Database mounted.
+Database opened.
+realizando limpieza
+
+User dropped.
+
+listo!!

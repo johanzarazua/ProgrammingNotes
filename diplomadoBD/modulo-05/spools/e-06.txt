@@ -1,0 +1,32 @@
+idle> @e-06-segmentos.sql
+Connected.
+
+                                                                                                                                                    
+
+
+Table created.
+
+creando un indice explicito
+
+Index created.
+
+mostrando segmentos de la tabla
+
+TABLESPACE_NAME                SEGMENT_NAME                   SEGMENT_TYPE           BLOCKS    EXTENTS                                              
+------------------------------ ------------------------------ ------------------ ---------- ----------                                              
+USERS                          EMPLEADO                       TABLE                       8          1                                              
+USERS                          EMPLEADO_CURP_UK               INDEX                       8          1                                              
+USERS                          EMPLEADO_EMAIL_IX              INDEX                       8          1                                              
+USERS                          EMPLEADO_PK                    INDEX                       8          1                                              
+
+mostrando datos de user_lobs
+
+TABLESPACE_NAME                SEGMENT_NAME                   INDEX_NAME                     COLUMN_NAME                                            
+------------------------------ ------------------------------ ------------------------------ ------------------------------                         
+USERS                          SYS_LOB0000060706C00004$$      SYS_IL0000060706C00004$$       FOTO                                                   
+USERS                          SYS_LOB0000060706C00005$$      SYS_IL0000060706C00005$$       CV                                                     
+
+
+Table dropped.
+
+johan05@jzrdip02> exit

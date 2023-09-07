@@ -1,0 +1,164 @@
+idle> @scripts/e-01-bloques-indices.sql
+conectando como sys
+Connected.
+
+                                                                                                                                                                      
+
+old   5:     from all_users where username = '&p_user';
+new   5:     from all_users where username = 'JOHAN05';
+old   8:     dbms_output.put_line('Eliminando al usuario &p_user');
+new   8:     dbms_output.put_line('Eliminando al usuario JOHAN05');
+old   9:     execute immediate 'drop user &p_user cascade';
+new   9:     execute immediate 'drop user JOHAN05 cascade';
+old  11:     dbms_output.put_line('El usuario &p_user no existe');
+new  11:     dbms_output.put_line('El usuario JOHAN05 no existe');
+Eliminando al usuario JOHAN05                                                                                                                                         
+
+PL/SQL procedure successfully completed.
+
+creando el usuario JOHAN05
+old   1: create user &p_user identified by &p_user quota unlimited on users
+new   1: create user JOHAN05 identified by JOHAN05 quota unlimited on users
+
+User created.
+
+old   1: grant create session, create table to &p_user
+new   1: grant create session, create table to JOHAN05
+
+Grant succeeded.
+
+conectando como JOHAN05
+Connected.
+
+                                                                                                                                                                      
+
+creando tabla
+
+Table created.
+
+insertando primer registro
+
+1 row created.
+
+mostrando informacion del indice
+
+INDEX_TYPE                  TABLE_NAME           UNIQUENES TABLESPACE_NAME                STATUS       BLEVEL DISTINCT_KEYS LEAF_BLOCKS                               
+--------------------------- -------------------- --------- ------------------------------ -------- ---------- ------------- -----------                               
+NORMAL                      T01_ID               UNIQUE    USERS                          VALID                                                                       
+
+Analizar resulatado, [Enter] para continuar
+
+recolectando estadisticas
+old   2:   dbms_stats.gather_index_stats(ownname => '&p_user', indname => 'T01_ID_PK');
+new   2:   dbms_stats.gather_index_stats(ownname => 'JOHAN05', indname => 'T01_ID_PK');
+
+PL/SQL procedure successfully completed.
+
+mostrando informacion del indice despues de obtener estadisticas
+
+INDEX_TYPE                  TABLE_NAME           UNIQUENES TABLESPACE_NAME                STATUS       BLEVEL DISTINCT_KEYS LEAF_BLOCKS                               
+--------------------------- -------------------- --------- ------------------------------ -------- ---------- ------------- -----------                               
+NORMAL                      T01_ID               UNIQUE    USERS                          VALID             0             1           1                               
+
+Analizar resulatado, [Enter] para continuar y realizar carga de datos
+
+
+PL/SQL procedure successfully completed.
+
+recolectando estadisticas
+old   2:   dbms_stats.gather_index_stats(ownname => '&p_user', indname => 'T01_ID_PK');
+new   2:   dbms_stats.gather_index_stats(ownname => 'JOHAN05', indname => 'T01_ID_PK');
+
+PL/SQL procedure successfully completed.
+
+mostrando informacion del indice despues de la carga
+
+INDEX_TYPE                  TABLE_NAME           UNIQUENES TABLESPACE_NAME                STATUS       BLEVEL DISTINCT_KEYS LEAF_BLOCKS                               
+--------------------------- -------------------- --------- ------------------------------ -------- ---------- ------------- -----------                               
+NORMAL                      T01_ID               UNIQUE    USERS                          VALID             2       1000000        1875                               
+
+Analizar resulatado, [Enter] para continuar
+
+idle> prompt segunda ejecucion
+segunda ejecucion
+idle> @e-01-bloques-indices.sql
+conectando como sys
+Connected.
+
+                                                                                                                                                                                                                               
+
+old   5:     from all_users where username = '&p_user';
+new   5:     from all_users where username = 'JOHAN05';
+old   8:     dbms_output.put_line('Eliminando al usuario &p_user');
+new   8:     dbms_output.put_line('Eliminando al usuario JOHAN05');
+old   9:     execute immediate 'drop user &p_user cascade';
+new   9:     execute immediate 'drop user JOHAN05 cascade';
+old  11:     dbms_output.put_line('El usuario &p_user no existe');
+new  11:     dbms_output.put_line('El usuario JOHAN05 no existe');
+Eliminando al usuario JOHAN05                                                                                                                                                                                                  
+
+PL/SQL procedure successfully completed.
+
+creando el usuario JOHAN05
+old   1: create user &p_user identified by &p_user quota unlimited on users
+new   1: create user JOHAN05 identified by JOHAN05 quota unlimited on users
+
+User created.
+
+old   1: grant create session, create table to &p_user
+new   1: grant create session, create table to JOHAN05
+
+Grant succeeded.
+
+conectando como JOHAN05
+Connected.
+
+                                                                                                                                                                                                                               
+
+creando tabla
+
+Table created.
+
+insertando primer registro
+
+1 row created.
+
+mostrando informacion del indice
+
+INDEX_TYPE                  TABLE_NAME           UNIQUENES TABLESPACE_NAME                STATUS       BLEVEL DISTINCT_KEYS LEAF_BLOCKS                                                                                         
+--------------------------- -------------------- --------- ------------------------------ -------- ---------- ------------- -----------                                                                                         
+NORMAL                      T01_ID               UNIQUE    USERS                          VALID                                                                                                                                 
+
+Analizar resulatado, [Enter] para continuar
+
+recolectando estadisticas
+old   2:   dbms_stats.gather_index_stats(ownname => '&p_user', indname => 'T01_ID_PK');
+new   2:   dbms_stats.gather_index_stats(ownname => 'JOHAN05', indname => 'T01_ID_PK');
+
+PL/SQL procedure successfully completed.
+
+mostrando informacion del indice despues de obtener estadisticas
+
+INDEX_TYPE                  TABLE_NAME           UNIQUENES TABLESPACE_NAME                STATUS       BLEVEL DISTINCT_KEYS LEAF_BLOCKS                                                                                         
+--------------------------- -------------------- --------- ------------------------------ -------- ---------- ------------- -----------                                                                                         
+NORMAL                      T01_ID               UNIQUE    USERS                          VALID             0             1           1                                                                                         
+
+Analizar resulatado, [Enter] para continuar y realizar carga de datos
+
+
+PL/SQL procedure successfully completed.
+
+recolectando estadisticas
+old   2:   dbms_stats.gather_index_stats(ownname => '&p_user', indname => 'T01_ID_PK');
+new   2:   dbms_stats.gather_index_stats(ownname => 'JOHAN05', indname => 'T01_ID_PK');
+
+PL/SQL procedure successfully completed.
+
+mostrando informacion del indice despues de la carga
+
+INDEX_TYPE                  TABLE_NAME           UNIQUENES TABLESPACE_NAME                STATUS       BLEVEL DISTINCT_KEYS LEAF_BLOCKS                                                                                         
+--------------------------- -------------------- --------- ------------------------------ -------- ---------- ------------- -----------                                                                                         
+NORMAL                      T01_ID               UNIQUE    USERS                          VALID             2       1000000        1875                                                                                         
+
+Analizar resulatado, [Enter] para continuar
+

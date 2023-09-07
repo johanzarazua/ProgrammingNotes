@@ -1,0 +1,166 @@
+idle> @s-01-inicia-bd-oracle.sql
+connectando como sysdba
+Connected to an idle instance.
+select lower(sys_context('userenv','current_user')
+*
+ERROR at line 1:
+ORA-01034: ORACLE not available
+Process ID: 0
+Session ID: 0 Serial number: 0 
+
+
+
+deteniendo instancia
+ERROR:
+ORA-01034: ORACLE not available
+ORA-27101: shared memory realm does not exist
+Linux-x86_64 Error: 2: No such file or directory
+Additional information: 4376
+Additional information: -1540229789
+Process ID: 0
+Session ID: 0 Serial number: 0 
+
+
+creando carpeta de respaldos
+
+moviendo archivos a respaldo seguro (simular perdida)
+moviendo spfile y pfile
+
+
+moviendo un solo archivo de control
+
+moviendo todos los redo logs
+
+
+
+
+
+
+
+
+
+moviendo datafile
+
+
+mostrando archivos en el directorio de respaldo.
+
+verificar que los archivos se hayan respaldado [enter para continuar]
+
+iniciando instancia en modo nomount, se espera error debido a que no encontrara algun archivo de parametros
+Que sucedera? [enter para continuar]
+
+ORA-01078: failure in processing system parameters
+LRM-00109: could not open parameter file '/u01/app/oracle/product/19.3.0/dbhome_1/dbs/initjzrdip02.ora'
+[enter para continuar con la solucion]
+
+restaurando spfile y pfile
+
+
+iniciando instancia en modo nomount, se soluciona el error
+Que sucedera? [enter para continuar]
+
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                                                     
+Fixed Size                  8901696 bytes                                                                                                                                                     
+Variable Size             557842432 bytes                                                                                                                                                     
+Database Buffers          125829120 bytes                                                                                                                                                     
+Redo Buffers                7872512 bytes                                                                                                                                                     
+In-Memory Area            104857600 bytes                                                                                                                                                     
+cambiando base a estado mount, se espera error debido a que no encuetra el archivo de control
+Que sucedera? [enter para continuar]
+
+alter database mount
+*
+ERROR at line 1:
+ORA-00205: error in identifying control file, check alert log for more info 
+
+
+[enter para continuar con la solucion]
+
+recuperando archivo de control
+
+cambiando base a estado mount, se soluciona el error
+Que sucedera? [enter para continuar]
+
+
+Database altered.
+
+pasandoa modo open, se espera error ya que no encuentra los datafiles
+Que sucedera? [enter para continuar]
+
+alter database open
+*
+ERROR at line 1:
+ORA-01157: cannot identify/lock data file 1 - see DBWR trace file
+ORA-01110: data file 1: '/u01/app/oracle/oradata/JZRDIP02/system01.dbf' 
+
+
+[enter para continuar con la solucion]
+
+restaurando datafile para tablespace system
+
+pasandoa modo open, se espera error, aun le falta encontrar un datafile
+Que sucedera? [enter para continuar]
+
+alter database open
+*
+ERROR at line 1:
+ORA-01157: cannot identify/lock data file 4 - see DBWR trace file
+ORA-01110: data file 4: '/u01/app/oracle/oradata/JZRDIP02/users01.dbf' 
+
+
+[enter para continuar con la solucion]
+
+restaurando datafile para tablespace users
+
+pasandoa modo open, se espera error, en este caso marca un error ya que no va a encontrar ningun redo log
+Que sucedera? [enter para continuar]
+
+alter database open
+*
+ERROR at line 1:
+ORA-03113: end-of-file on communication channel
+Process ID: 64764
+Session ID: 89 Serial number: 755 
+
+
+[enter para continuar con la solucion]
+
+restaurando redo logs
+
+
+
+
+
+
+
+
+
+pasandoa modo open, se soluciona el error
+Connected to an idle instance.
+select lower(sys_context('userenv','current_user')
+*
+ERROR at line 1:
+ORA-01034: ORACLE not available
+Process ID: 0
+Session ID: 0 Serial number: 0 
+
+
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                                                     
+Fixed Size                  8901696 bytes                                                                                                                                                     
+Variable Size             557842432 bytes                                                                                                                                                     
+Database Buffers          125829120 bytes                                                                                                                                                     
+Redo Buffers                7872512 bytes                                                                                                                                                     
+In-Memory Area            104857600 bytes                                                                                                                                                     
+Database mounted.
+Database opened.
+mostrando status
+
+STATUS                                                                                                                                                                                        
+------------                                                                                                                                                                                  
+OPEN                                                                                                                                                                                          
+
+Listo!!!!

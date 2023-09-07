@@ -1,0 +1,100 @@
+idle> @scripts/s-02-conexion-sesion.sql
+conectando como sysdba
+Connected.
+
+                                                                                                          
+
+creando user04
+
+User created.
+
+
+Grant succeeded.
+
+Iniciar sesion en T2 como user04 [Enter] para continuar
+
+mostranndo datos de las sesiones de user04
+
+USERNAME                              SID    SERIAL# SERVER    PADDR            STATUS                    
+------------------------------ ---------- ---------- --------- ---------------- --------                  
+USER04                                267      63227 DEDICATED 0000000075343418 INACTIVE                  
+
+Analizar resultados, [Enter] para continuar
+
+Configurando el rol plustrace
+sys@jzrdip02> 
+sys@jzrdip02> drop role plustrace;
+
+Role dropped.
+
+sys@jzrdip02> create role plustrace;
+
+Role created.
+
+sys@jzrdip02> 
+sys@jzrdip02> grant select on v_$sesstat to plustrace;
+
+Grant succeeded.
+
+sys@jzrdip02> grant select on v_$statname to plustrace;
+
+Grant succeeded.
+
+sys@jzrdip02> grant select on v_$mystat to plustrace;
+
+Grant succeeded.
+
+sys@jzrdip02> grant plustrace to dba with admin option;
+
+Grant succeeded.
+
+sys@jzrdip02> 
+sys@jzrdip02> set echo off
+
+Grant succeeded.
+
+En T2, cerrar sesion, volver a iniciar y hbailitar autotrace
+[Enter] al terminar
+
+mostrando nuevamente las sesiones de user04
+Que se obtendra? [Enter] para continuar
+
+
+USERNAME                              SID    SERIAL# SERVER    PADDR            STATUS                    
+------------------------------ ---------- ---------- --------- ---------------- --------                  
+USER04                                 21      12382 DEDICATED 0000000075344978 INACTIVE                  
+USER04                                267       2569 DEDICATED 0000000075343418 INACTIVE                  
+
+Analizar resultados [Enter] para continuar
+
+en T2, cerrar sesion de user04, manteniendo conexion (disconnect)
+[Enter] al terminar
+
+mostrando nuevamente las sesiones de user04, ya no debe existir la sesion de user04
+
+no rows selected
+
+Analizar resultados [Enter] para continuar
+
+mostrando los datos del server process que en teoria debe existir.
+Indicar el valor address del proceso que se muestra en la sesion de user04
+Enter value for p_addr: 0000000075343418
+old   2:   where addr = hextoraw('&p_addr')
+new   2:   where addr = hextoraw('0000000075343418')
+
+SOSID                    USERNAME                       PROGRAM                                           
+------------------------ ------------------------------ ------------------------------------------------  
+14819                    johanzr                        oracle@pc-jzr.fi.unam (TNS V1-V3)                 
+
+Analizar resultados, [Enter] para continuar
+
+mostrando datos del proceso a nivel de s.o.
+observar la consulta anterior y proporcionar el valor del id del proceso a nivel de s.o. (sosid)
+Enter value for p_sosid: 14819
+
+[Enter] para realizar limpieza
+
+
+User dropped.
+
+Listo!!!

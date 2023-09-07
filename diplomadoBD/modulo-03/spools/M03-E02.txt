@@ -1,0 +1,121 @@
+idle> @s-02-modos-inicio.sql
+conectando como sysdba
+Connected.
+
+                                                                                                                                     
+
+deteniendo la instancia (en caso de estar inicada)
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+
+iniciando instancia en modo open
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                            
+Fixed Size                  8901696 bytes                                                                                            
+Variable Size             557842432 bytes                                                                                            
+Database Buffers          125829120 bytes                                                                                            
+Redo Buffers                7872512 bytes                                                                                            
+In-Memory Area            104857600 bytes                                                                                            
+Database mounted.
+Database opened.
+cambiando a modo restringido
+
+System altered.
+
+creando user01 y asignando privilegios
+
+User created.
+
+
+Grant succeeded.
+
+autenticando como user01, se espera que no nos permita ingresar debido a que la base esta en modo restringido y solo los usuarios con el privilegio restricted session pueden ingresar
+Que sucedera? [enter para continuar]
+
+ERROR:
+ORA-01035: ORACLE only available to users with RESTRICTED SESSION privilege 
+
+
+Warning: You are no longer connected to ORACLE.
+autenticando como sysdba
+Connected.
+
+                                                                                                                                     
+
+otorrgando privilegio a user01 para poder ingresar en modo restringido
+
+Grant succeeded.
+
+autenticando como user01, se espera poder ingresar ya que se le dio el privilegio necesario a user01
+Que sucedera? [enter para continuar]
+
+Connected.
+
+                                                                                                                                     
+
+autenticando como sysdba
+Connected.
+
+                                                                                                                                     
+
+desahabilitando modo restringido
+
+System altered.
+
+deteniendo base de datos
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+
+abriendo base de datos en modo read only
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                            
+Fixed Size                  8901696 bytes                                                                                            
+Variable Size             557842432 bytes                                                                                            
+Database Buffers          125829120 bytes                                                                                            
+Redo Buffers                7872512 bytes                                                                                            
+In-Memory Area            104857600 bytes                                                                                            
+Database mounted.
+Database opened.
+autenticando como user01
+Connected.
+
+                                                                                                                                     
+
+creando tabla de prueba, se espera error ya que la base esta en modo read only y esto impide que se haga algun cambio en datafiles y redologs
+Que sucedera? [enter para continuar]
+
+create table test(id number)
+*
+ERROR at line 1:
+ORA-16000: database or pluggable database open for read-only access 
+
+
+autenticando como sysdba
+Connected.
+
+                                                                                                                                     
+
+regresando a modo read write
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+abriendo base de datos en modo read write
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                            
+Fixed Size                  8901696 bytes                                                                                            
+Variable Size             557842432 bytes                                                                                            
+Database Buffers          125829120 bytes                                                                                            
+Redo Buffers                7872512 bytes                                                                                            
+In-Memory Area            104857600 bytes                                                                                            
+Database mounted.
+Database opened.
+realizando limpieza
+
+User dropped.
+
+listo!!!

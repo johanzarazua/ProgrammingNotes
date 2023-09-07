@@ -1,0 +1,33 @@
+Connected.
+
+                                                                                                                                                                    
+
+configurando alerta
+
+PL/SQL procedure successfully completed.
+
+Realizar las acciones correspondientes para generar alerta, [Enter] para continuar
+
+realizando consulta
+SP2-0158: unknown COLUMN option "fromat"
+
+SEQUENCE_ID OWNER                          OBJECT_NAME                    REASON                                                                                    
+----------- ------------------------------ ------------------------------ --------------------------------------------------                                        
+CREATION_TIME                                                               TIME_SUGGESTED                                                                          
+--------------------------------------------------------------------------- ---------------------------------------------------------------------------             
+       1919                                SID: 104 Serial#: 12532        Session 104 is blocking 2 other sessions                                                  
+23-MAR-23 08.04.25.984089 AM -06:00                                         23-MAR-23 08.04.25.984089 AM -06:00                                                     
+                                                                                                                                                                    
+       1918                                SID: 20 Serial#: 32322         Session 20 is blocking 3 other sessions                                                   
+23-MAR-23 08.04.25.586613 AM -06:00                                         23-MAR-23 08.04.25.586613 AM -06:00                                                     
+                                                                                                                                                                    
+
+regresando valores de alwerta a su valor por default
+begin
+*
+ERROR at line 1:
+ORA-13900: missing or invalid parameter warning value
+ORA-06512: at "SYS.DBMS_SERVER_ALERT", line 7
+ORA-06512: at line 2 
+
+

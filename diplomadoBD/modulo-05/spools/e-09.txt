@@ -1,0 +1,290 @@
+idle> @e-09-tablespaces.sql
+Conectando como sys
+Connected.
+
+                                                                                                                                                                     
+
+Creando tablespaces
+Ejercicio 1, crear TS m05_store_tbs1
+
+Tablespace created.
+
+Ejercicio 2, crear TS m05_sotre_multiple_tbs
+
+Tablespace created.
+
+Ejercicio 3, crear TS m05_store_tbs_custom
+
+Tablespace created.
+
+Ejercicio 4, consultar tablespaces creados
+
+TABLESPACE_NAME                STATUS    CONTENTS                                                                                                                    
+------------------------------ --------- ---------------------                                                                                                       
+SYSTEM                         ONLINE    PERMANENT                                                                                                                   
+SYSAUX                         ONLINE    PERMANENT                                                                                                                   
+UNDOTBS1                       ONLINE    UNDO                                                                                                                        
+TEMPTS1                        ONLINE    TEMPORARY                                                                                                                   
+USERS                          ONLINE    PERMANENT                                                                                                                   
+M05_STORE_TBS1                 ONLINE    PERMANENT                                                                                                                   
+M05_SOTRE_MULTIPLE_TBS         ONLINE    PERMANENT                                                                                                                   
+M05_STORE_TBS_CUSTOM           OFFLINE   PERMANENT                                                                                                                   
+
+8 rows selected.
+
+Ejercicio 5, creacion de usuario m05_store_user
+old   1: create user &t_user identified by &t_user quota unlimited on m05_store_tbs1
+new   1: create user m05_store_user identified by m05_store_user quota unlimited on m05_store_tbs1
+
+User created.
+
+old   1: grant create session, create table, create procedure to &t_user
+new   1: grant create session, create table, create procedure to m05_store_user
+
+Grant succeeded.
+
+Ejercicio 6, crear tabla store_data con el usuario m05_store_user
+Connected.
+
+                                                                                                                                                                     
+
+
+Table created.
+
+Ejercicio 7, procedimeinto para llenar TS
+
+Procedure created.
+
+No errors.
+ejecutando procedimiento
+Error: sin espaacio en TS                                                                                                                                            
+Codigo Error: -1653                                                                                                                                                  
+Mensaje Error: ORA-01653: unable to extend table M05_STORE_USER.STORE_DATA by 128 in tablespace M05_STORE_TBS1                                                       
+ORA-06512: at "M05_STORE_USER.SP_E6_RESERVA_EXTENSIONES", line 8
+                                                                                                   
+
+Total de extensiones reservadas: 44                                                                                                                                  
+Total espacio reservado en MB:   29                                                                                                                                  
+
+PL/SQL procedure successfully completed.
+
+Analizar resultados, [Enter] para continuar
+
+Ejercicio 8, modificar TS para almacenar
+Connected.
+
+                                                                                                                                                                     
+
+
+Tablespace altered.
+
+Ejercicio 9, ejecutar nuevamente el programa para confirmar resultados
+Connected.
+
+                                                                                                                                                                     
+
+Error: sin espaacio en TS                                                                                                                                            
+Codigo Error: -1653                                                                                                                                                  
+Mensaje Error: ORA-01653: unable to extend table M05_STORE_USER.STORE_DATA by 128 in tablespace M05_STORE_TBS1                                                       
+ORA-06512: at "M05_STORE_USER.SP_E6_RESERVA_EXTENSIONES", line 8
+                                                                                                   
+
+Total de extensiones reservadas: 53                                                                                                                                  
+Total espacio reservado en MB:   38                                                                                                                                  
+
+PL/SQL procedure successfully completed.
+
+Analizar resultados, [Enter] para continuar
+
+Ejercicio 10 consultar tablespaces
+Connected.
+
+                                                                                                                                                                     
+
+
+TABLESPACE_NAME                TOTAL_SEGMENTOS                                                                                                                       
+------------------------------ ---------------                                                                                                                       
+SYSAUX                                    2545                                                                                                                       
+SYSTEM                                    2172                                                                                                                       
+USERS                                       26                                                                                                                       
+UNDOTBS1                                    10                                                                                                                       
+M05_STORE_TBS1                               1                                                                                                                       
+TEMPTS1                                      0                                                                                                                       
+M05_STORE_TBS_CUSTOM                         0                                                                                                                       
+M05_SOTRE_MULTIPLE_TBS                       0                                                                                                                       
+
+8 rows selected.
+
+Analizar los resultados, [Enter] para continuar
+
+ejecunatdo consultas de datos de los data files
+SP2-0158: unknown SET option "pagsize"
+connsultando data files de dba_data_files
+Connected.
+
+                                                                                                                                                                     
+
+
+FILE_NAME                                                            FILE_ID RELATIVE_FNO TABLESPACE_NAME                  BYTES_MB STATUS    AUT INCREMENT_BY       
+----------------------------------------------------------------- ---------- ------------ ------------------------------ ---------- --------- --- ------------       
+USER_BYTES_MB  HEADER_KB ONLINE_                                                                                                                                     
+------------- ---------- -------                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/system01.dbf                              1            1 SYSTEM                                760 AVAILABLE YES         1280       
+          759       1024 SYSTEM                                                                                                                                      
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/sysaux01.dbf                              2            2 SYSAUX                                550 AVAILABLE YES         1280       
+          549       1024 ONLINE                                                                                                                                      
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/undotbs01.dbf                             3            3 UNDOTBS1                             1050 AVAILABLE YES          640       
+         1049       1024 ONLINE                                                                                                                                      
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/users01.dbf                               4            4 USERS                                 500 AVAILABLE YES            1       
+          499       1024 ONLINE                                                                                                                                      
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_tbs1.dbf                        5            5 M05_STORE_TBS1                         30 AVAILABLE NO             0       
+           29       1024 ONLINE                                                                                                                                      
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_tbs2.dbf                       10           10 M05_STORE_TBS1                         10 AVAILABLE NO             0       
+            9       1024 ONLINE                                                                                                                                      
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_multiple_01.dbf                 6            6 M05_SOTRE_MULTIPLE_TBS                 15 AVAILABLE NO             0       
+           14       1024 ONLINE                                                                                                                                      
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_multiple_02.dbf                 7            7 M05_SOTRE_MULTIPLE_TBS                 15 AVAILABLE NO             0       
+           14       1024 ONLINE                                                                                                                                      
+                                                                                                                                                                     
+
+FILE_NAME                                                            FILE_ID RELATIVE_FNO TABLESPACE_NAME                  BYTES_MB STATUS    AUT INCREMENT_BY       
+----------------------------------------------------------------- ---------- ------------ ------------------------------ ---------- --------- --- ------------       
+USER_BYTES_MB  HEADER_KB ONLINE_                                                                                                                                     
+------------- ---------- -------                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_multiple_03.dbf                 8            8 M05_SOTRE_MULTIPLE_TBS                 15 AVAILABLE NO             0       
+           14       1024 ONLINE                                                                                                                                      
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_tbs_custom_o1.dbf               9            9 M05_STORE_TBS_CUSTOM                      AVAILABLE                        
+                         OFFLINE                                                                                                                                     
+                                                                                                                                                                     
+
+10 rows selected.
+
+cosultando data files de v$datafile
+
+NAME                                                                   FILE# CREATION_CHANGE# CREATION_TIME       CHECKPOINT_CHANGE# CHECKPOINT_TIME     LAST_CHANGE#
+----------------------------------------------------------------- ---------- ---------------- ------------------- ------------------ ------------------- ------------
+LAST_TIME                                                                                                                                                            
+-------------------                                                                                                                                                  
+/u01/app/oracle/oradata/JZRDIP02/system01.dbf                              1                8 24/09/2022 12:43:12            3643952 10/12/2022 13:43:44             
+                                                                                                                                                                     
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/sysaux01.dbf                              2             2856 24/09/2022 12:43:32            3643952 10/12/2022 13:43:44             
+                                                                                                                                                                     
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/undotbs01.dbf                             3             3676 24/09/2022 12:43:46            3643952 10/12/2022 13:43:44             
+                                                                                                                                                                     
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/users01.dbf                               4             3834 24/09/2022 12:43:56            3643952 10/12/2022 13:43:44             
+                                                                                                                                                                     
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_tbs1.dbf                        5          3853253 10/12/2022 13:51:45            3853254 10/12/2022 13:51:47             
+                                                                                                                                                                     
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_multiple_01.dbf                 6          3853285 10/12/2022 13:51:50            3853288 10/12/2022 13:51:54             
+                                                                                                                                                                     
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_multiple_02.dbf                 7          3853286 10/12/2022 13:51:51            3853288 10/12/2022 13:51:54             
+                                                                                                                                                                     
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_multiple_03.dbf                 8          3853287 10/12/2022 13:51:53            3853288 10/12/2022 13:51:54             
+                                                                                                                                                                     
+                                                                                                                                                                     
+
+NAME                                                                   FILE# CREATION_CHANGE# CREATION_TIME       CHECKPOINT_CHANGE# CHECKPOINT_TIME     LAST_CHANGE#
+----------------------------------------------------------------- ---------- ---------------- ------------------- ------------------ ------------------- ------------
+LAST_TIME                                                                                                                                                            
+-------------------                                                                                                                                                  
+/u01/app/oracle/oradata/JZRDIP02/m05_store_tbs_custom_o1.dbf               9          3853318 10/12/2022 13:51:59            3853318 10/12/2022 13:51:59      3853318
+10/12/2022 13:51:59                                                                                                                                                  
+                                                                                                                                                                     
+/u01/app/oracle/oradata/JZRDIP02/m05_store_tbs2.dbf                       10          3853785 10/12/2022 13:52:08            3853786 10/12/2022 13:52:09             
+                                                                                                                                                                     
+                                                                                                                                                                     
+
+10 rows selected.
+
+Analizar salida, [Enter] para continuar
+
+mostrando datos del hader del datfile
+
+     FILE# NAME                                                              ERROR                                                             REC CHECKPOINT_CHANGE#
+---------- ----------------------------------------------------------------- ----------------------------------------------------------------- --- ------------------
+CHECKPOINT_TIME                                                                                                                                                      
+-------------------                                                                                                                                                  
+         1 /u01/app/oracle/oradata/JZRDIP02/system01.dbf                                                                                       NO             3643952
+10/12/2022 13:43:44                                                                                                                                                  
+                                                                                                                                                                     
+         2 /u01/app/oracle/oradata/JZRDIP02/sysaux01.dbf                                                                                       NO             3643952
+10/12/2022 13:43:44                                                                                                                                                  
+                                                                                                                                                                     
+         3 /u01/app/oracle/oradata/JZRDIP02/undotbs01.dbf                                                                                      NO             3643952
+10/12/2022 13:43:44                                                                                                                                                  
+                                                                                                                                                                     
+         4 /u01/app/oracle/oradata/JZRDIP02/users01.dbf                                                                                        NO             3643952
+10/12/2022 13:43:44                                                                                                                                                  
+                                                                                                                                                                     
+         5 /u01/app/oracle/oradata/JZRDIP02/m05_store_tbs1.dbf                                                                                 NO             3853254
+10/12/2022 13:51:47                                                                                                                                                  
+                                                                                                                                                                     
+         6 /u01/app/oracle/oradata/JZRDIP02/m05_store_multiple_01.dbf                                                                          NO             3853288
+10/12/2022 13:51:54                                                                                                                                                  
+                                                                                                                                                                     
+         7 /u01/app/oracle/oradata/JZRDIP02/m05_store_multiple_02.dbf                                                                          NO             3853288
+10/12/2022 13:51:54                                                                                                                                                  
+                                                                                                                                                                     
+         8 /u01/app/oracle/oradata/JZRDIP02/m05_store_multiple_03.dbf                                                                          NO             3853288
+10/12/2022 13:51:54                                                                                                                                                  
+                                                                                                                                                                     
+
+     FILE# NAME                                                              ERROR                                                             REC CHECKPOINT_CHANGE#
+---------- ----------------------------------------------------------------- ----------------------------------------------------------------- --- ------------------
+CHECKPOINT_TIME                                                                                                                                                      
+-------------------                                                                                                                                                  
+         9 /u01/app/oracle/oradata/JZRDIP02/m05_store_tbs_custom_o1.dbf                                                                        NO             3853318
+10/12/2022 13:51:59                                                                                                                                                  
+                                                                                                                                                                     
+        10 /u01/app/oracle/oradata/JZRDIP02/m05_store_tbs2.dbf                                                                                 NO             3853786
+10/12/2022 13:52:09                                                                                                                                                  
+                                                                                                                                                                     
+
+10 rows selected.
+
+Analizar salida, [Enter] para continuar
+
+mostrando archivos temporales
+
+   FILE_ID FILE_NAME                                                         TABLESPACE_NAME                STATUS  AUT   BYTES_MB                                   
+---------- ----------------------------------------------------------------- ------------------------------ ------- --- ----------                                   
+         1 /u01/app/oracle/oradata/JZRDIP02/temp01.dbf                       TEMPTS1                        ONLINE  YES         20                                   
+
+Analizar salida, [Enter] para continuar
+
+limpieza
+Connected.
+
+                                                                                                                                                                     
+
+eliminando ts usuario y usuario
+
+Tablespace dropped.
+
+
+Tablespace dropped.
+
+
+Tablespace dropped.
+
+old   1: drop user &t_user cascade
+new   1: drop user m05_store_user cascade
+
+User dropped.
+
+Listo

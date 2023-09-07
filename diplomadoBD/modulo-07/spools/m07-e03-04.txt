@@ -1,0 +1,67 @@
+Inciando JZRDIP03
+
+Inciando JZRDIP04
+
+conectando a JZRDIP03
+Connected.
+
+                                                                                                                                                                        
+
+creando usuario en JZRDIP03
+
+User created.
+
+
+Grant succeeded.
+
+abriendo pdb
+alter pluggable database jzrdip03_s1 open read write
+*
+ERROR at line 1:
+ORA-65019: pluggable database JZRDIP03_S1 already open 
+
+
+conectando a JZRDIP04 para crear db link
+Connected.
+
+                                                                                                                                                                        
+
+
+Database link created.
+
+creando PDB jzrdip04_m3
+
+Pluggable database created.
+
+Abriendo y verificando PDBS
+
+Pluggable database altered.
+
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED                                                                                                         
+---------- ------------------------------ ---------- ----------                                                                                                         
+         2 PDB$SEED                       READ ONLY  NO                                                                                                                 
+         3 JZRDIP04_S1                    MOUNTED                                                                                                                       
+         4 JZRDIP04_S2                    MOUNTED                                                                                                                       
+         6 JZRDIP04_M3                    READ WRITE NO                                                                                                                 
+Analizar resultado [Enter] para continuar con la lmipieza
+
+borrando PDB
+
+Pluggable database altered.
+
+
+Pluggable database dropped.
+
+borrando liga
+
+Database link dropped.
+
+borrando usuario, cambiando a JZRDIP03
+Connected.
+
+                                                                                                                                                                        
+
+
+User dropped.
+

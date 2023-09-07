@@ -1,0 +1,170 @@
+Creando PDB tipo refreshable
+Iniciando jzrdip03
+
+Iniciando jzrdip04
+
+Conectando jzrdip03
+Connected.
+
+                                                                                                                                                                        
+
+Abriendo jzrdip03_s1
+
+Pluggable database altered.
+
+Creando tablespace para guardar datos de prueba
+
+Session altered.
+
+
+Tablespace created.
+
+Creando un usuario común
+
+Session altered.
+
+
+User created.
+
+
+Grant succeeded.
+
+Conectando a jzrdip04 para crear la liga
+Connected.
+
+                                                                                                                                                                        
+
+Crear liga
+
+Database link created.
+
+Creando PDB tipo refreshable
+
+Pluggable database created.
+
+Consultando el último refresh
+
+LAST_REFRESH_SCN                                                                                                                                                        
+----------------                                                                                                                                                        
+         2511052                                                                                                                                                        
+
+Analizar el valor del scn [enter]
+
+Crear tabla y registro en jzrdip03_s1
+Connected.
+
+                                                                                                                                                                        
+
+Creando usuario de prueba
+
+User created.
+
+
+Grant succeeded.
+
+Creando tabla test_refresh
+
+Table created.
+
+Insertando datos de prueba
+
+1 row created.
+
+
+Commit complete.
+
+Revisar tabla y datos creados [enter]
+
+Conectando a la PDB jzrdip04_r3
+Connected.
+
+                                                                                                                                                                        
+
+Hacer switch a jzrdip04_r3
+
+Pluggable database altered.
+
+
+Session altered.
+
+Verificando datos
+¿Qué sucedería al intentar consultart la tabla? [enter]
+
+select * from johan_refresh.test_refresh
+                            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+Hacer refresh desde root
+
+Session altered.
+
+
+Pluggable database altered.
+
+
+Pluggable database altered.
+
+
+Pluggable database altered.
+
+Consultando datos nuevamente
+
+Session altered.
+
+¿Qué se esperaría? [enter]
+
+
+        ID                                                                                                                                                              
+----------                                                                                                                                                              
+         1                                                                                                                                                              
+
+Mostrando el último scn
+
+LAST_REFRESH_SCN                                                                                                                                                        
+----------------                                                                                                                                                        
+         2511382                                                                                                                                                        
+
+Analizar resultados [enter]
+
+
+Session altered.
+
+
+Pluggable database altered.
+
+
+Pluggable database dropped.
+
+
+Database link dropped.
+
+Connected.
+
+                                                                                                                                                                        
+
+drop database link clone_link
+                   *
+ERROR at line 1:
+ORA-02024: database link not found 
+
+
+Connected.
+
+                                                                                                                                                                        
+
+
+User dropped.
+
+
+Session altered.
+
+
+Tablespace dropped.
+
+
+User dropped.
+
+eliminando archivo en jzrdip04_r3
+

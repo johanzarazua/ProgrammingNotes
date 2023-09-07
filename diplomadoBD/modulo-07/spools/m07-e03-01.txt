@@ -1,0 +1,113 @@
+1. creando cdb a partir de SEED (from scratch)
+iniciando cdb jzrdip03
+
+conectando como sys en jzrdip03
+Connected.
+
+                                                                                                                                                                                                                       
+
+creando pdb jzrdip03_s3 a partir de SEED
+
+System altered.
+
+
+Pluggable database created.
+
+cambiarse a /u01/app/oracle/oradata/JZRDIP03 como oracle
+Analizar datafiles [Enter] para continuar
+
+mostrando datos de la nueva CDB desde el DD.
+
+   FILE_ID FILE_NAME                                                                                      
+---------- --------------------------------------------------------------------------------               
+         1 /u01/app/oracle/oradata/JZRDIP03/system01.dbf                                                  
+         3 /u01/app/oracle/oradata/JZRDIP03/sysaux01.dbf                                                  
+         4 /u01/app/oracle/oradata/JZRDIP03/undotbs01.dbf                                                 
+         7 /u01/app/oracle/oradata/JZRDIP03/users01.dbf                                                   
+
+mostrando datos de las pdbs
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED                                           
+---------- ------------------------------ ---------- ----------                                           
+         2 PDB$SEED                       READ ONLY  NO                                                   
+         3 JZRDIP03_S1                    READ WRITE NO                                                   
+         4 JZRDIP03_S2                    READ WRITE NO                                                   
+         6 JZRDIP03_S3                    MOUNTED                                                         
+mostrando datos de las PDBs (dba_pdbs)
+
+    PDB_ID                                                                                                
+----------                                                                                                
+PDB_NAME                                                                                                  
+----------------------------------------------------------------------------------------------------------
+STATUS                                                                                                    
+----------                                                                                                
+         3                                                                                                
+JZRDIP03_S1                                                                                               
+NORMAL                                                                                                    
+                                                                                                          
+         2                                                                                                
+PDB$SEED                                                                                                  
+NORMAL                                                                                                    
+                                                                                                          
+         4                                                                                                
+JZRDIP03_S2                                                                                               
+NORMAL                                                                                                    
+                                                                                                          
+         6                                                                                                
+JZRDIP03_S3                                                                                               
+NEW                                                                                                       
+                                                                                                          
+
+Analizar [Enter] para continuar
+
+modificando status de pdb
+
+Pluggable database altered.
+
+accediendo a la pddb
+
+Session altered.
+
+
+CON_ID                                                                                                    
+------------------------------                                                                            
+6                                                                                                         
+
+CON_NAME                                                                                                  
+------------------------------                                                                            
+JZRDIP03_S3                                                                                               
+
+   FILE_ID FILE_NAME                                                                                      
+---------- --------------------------------------------------------------------------------               
+        20 /u01/app/oracle/oradata/JZRDIP03/F4635772005FC067E0530100007F2C87/datafile/o1_mf               
+           _system_kyfv0gyg_.dbf                                                                          
+                                                                                                          
+        21 /u01/app/oracle/oradata/JZRDIP03/F4635772005FC067E0530100007F2C87/datafile/o1_mf               
+           _sysaux_kyfv0gyp_.dbf                                                                          
+                                                                                                          
+        22 /u01/app/oracle/oradata/JZRDIP03/F4635772005FC067E0530100007F2C87/datafile/o1_mf               
+           _undotbs1_kyfv0gyp_.dbf                                                                        
+                                                                                                          
+
+[Enter] Para realizar limpieza
+
+cambiando a cdb$root
+
+Session altered.
+
+
+Pluggable database altered.
+
+
+
+Pluggable database altered.
+
+Mostrando contenido de los metadatos [Enter] para ejecutar
+
+
+Analizar xml [Enter] para continuar (se eliminaran los archivos)
+
+
+Pluggable database dropped.
+
+

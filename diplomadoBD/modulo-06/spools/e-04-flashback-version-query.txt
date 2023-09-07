@@ -1,0 +1,121 @@
+Conectando con usuario06
+Connected.
+
+                                                                                                                                                                                                                  
+
+1. Creando tabla fb_version
+
+Table created.
+
+
+PL/SQL procedure successfully completed.
+
+Insertando registros
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Commit complete.
+
+mostrando datos de la tabla
+
+        ID NAME            FEHAHORA                                                                                                                                                                               
+---------- --------------- ------------------------------                                                                                                                                                         
+         1 valor1          04-02-2023 22:46:34                                                                                                                                                                    
+         2 valor2          04-02-2023 22:46:34                                                                                                                                                                    
+         3 valor3          04-02-2023 22:46:34                                                                                                                                                                    
+
+
+PL/SQL procedure successfully completed.
+
+2. Mostrando scn actual
+
+      SCN1                                                                                                                                                                                                        
+----------                                                                                                                                                                                                        
+   5680513                                                                                                                                                                                                        
+
+3. Actualizando un registro de la tabla
+
+1 row updated.
+
+
+Commit complete.
+
+mostrando datos de la tabla
+
+        ID NAME            FEHAHORA                                                                                                                                                                               
+---------- --------------- ------------------------------                                                                                                                                                         
+         1 cambio1         04-02-2023 22:46:40                                                                                                                                                                    
+         2 valor2          04-02-2023 22:46:34                                                                                                                                                                    
+         3 valor3          04-02-2023 22:46:34                                                                                                                                                                    
+
+
+PL/SQL procedure successfully completed.
+
+4. Actualizando un registro de la tabla
+
+1 row updated.
+
+
+Commit complete.
+
+mostrando datos de la tabla
+
+        ID NAME            FEHAHORA                                                                                                                                                                               
+---------- --------------- ------------------------------                                                                                                                                                         
+         1 cambio1         04-02-2023 22:46:40                                                                                                                                                                    
+         2 cambio2         04-02-2023 22:46:46                                                                                                                                                                    
+         3 valor3          04-02-2023 22:46:34                                                                                                                                                                    
+
+
+PL/SQL procedure successfully completed.
+
+5. Eliminando un registro
+
+1 row deleted.
+
+
+Commit complete.
+
+mostrando datos de la tabla
+
+        ID NAME            FEHAHORA                                                                                                                                                                               
+---------- --------------- ------------------------------                                                                                                                                                         
+         2 cambio2         04-02-2023 22:46:46                                                                                                                                                                    
+         3 valor3          04-02-2023 22:46:34                                                                                                                                                                    
+
+
+PL/SQL procedure successfully completed.
+
+6. Mostrando scn actual
+
+      SCN2                                                                                                                                                                                                        
+----------                                                                                                                                                                                                        
+   5680526                                                                                                                                                                                                        
+
+7. Mostrando el historico de los eventos ocurridos
+Consulta 1 (fechaHora)
+
+        ID NAME            FEHAHORA                                                                                                                                                                               
+---------- --------------- ------------------------------                                                                                                                                                         
+         1 cambio1         04-02-2023 22:46:40                                                                                                                                                                    
+         1 cambio1         04-02-2023 22:46:40                                                                                                                                                                    
+         1 valor1          04-02-2023 22:46:34                                                                                                                                                                    
+
+Consulta 1 (scn)
+Enter value for scn1: 5680513
+Enter value for scn2: 5680526
+
+        ID NAME            FEHAHORA                                                                                                                                                                               
+---------- --------------- ------------------------------                                                                                                                                                         
+         1 cambio1         04-02-2023 22:46:40                                                                                                                                                                    
+         1 cambio1         04-02-2023 22:46:40                                                                                                                                                                    
+         1 valor1          04-02-2023 22:46:34                                                                                                                                                                    
+
+user06@jzrdip02> exit

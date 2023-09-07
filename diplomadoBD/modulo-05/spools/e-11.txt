@@ -1,0 +1,3 @@
+idle> !find /unam-diplomado-bd/disk-0*/app/oracle/oradata/JZRDIP02/redo* -name "redo*.log" -type f -exec ls -l {} +;
+
+idle> exit

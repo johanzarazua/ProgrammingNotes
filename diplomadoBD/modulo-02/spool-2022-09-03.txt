@@ -1,0 +1,6 @@
+SQL> 
+SQL> show user
+USER is ""
+SQL> 
+SQL> 
+SQL> spool off

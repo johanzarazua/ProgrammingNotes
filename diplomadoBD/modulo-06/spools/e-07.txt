@@ -1,0 +1,91 @@
+1. Conectando con sys
+Connected.
+
+                                                                                                                                                                                                                  
+
+Verificando SCN actual
+
+SCN_INICIAL                                                                                                                                                                                                       
+-----------                                                                                                                                                                                                       
+    5786581                                                                                                                                                                                                       
+
+2. Creando punto de restauracion
+
+Restore point created.
+
+3. Consultando la vista de puntos de resturacion
+
+NAME                   SCN TIME                                                                                                                                                                                   
+--------------- ---------- --------------------------------------------------                                                                                                                                     
+PUNTO_REST         5786582 05-FEB-23 12.16.32.000000000 AM                                                                                                                                                        
+
+4. Conectando con user06
+Connected.
+
+                                                                                                                                                                                                                  
+
+creando tabla fb_database
+
+Table created.
+
+insertando datos en fb_database
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+cosnultando datos en fb_database
+
+        ID                                                                                                                                                                                                        
+----------                                                                                                                                                                                                        
+         1                                                                                                                                                                                                        
+         2                                                                                                                                                                                                        
+         3                                                                                                                                                                                                        
+         4                                                                                                                                                                                                        
+
+5. Iniciar la instancia en modo mount
+Connected.
+
+                                                                                                                                                                                                                  
+
+deteniendo isntancia
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+
+inicnando en modo mount
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                                                                         
+Fixed Size                  8901696 bytes                                                                                                                                                                         
+Variable Size             583008256 bytes                                                                                                                                                                         
+Database Buffers          100663296 bytes                                                                                                                                                                         
+Redo Buffers                7872512 bytes                                                                                                                                                                         
+In-Memory Area            104857600 bytes                                                                                                                                                                         
+Database mounted.
+6. regresando la base de datos el punto de restauracion
+
+Flashback complete.
+
+7. Abrir la base en modo open y reiniciar los redos log
+
+Database altered.
+
+8. Verificar que recupero la base con el pinto de restauracion
+select * from user06.fb_database
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+9. Eliminando  punto de restauracion
+
+Restore point dropped.
+

@@ -1,0 +1,29 @@
+idle> @programa1.sql
+Conectando como JOHAN05 para crear tabla con datos.
+Connected.
+
+                                                                                                                                                                                                                 
+
+Ok, 10000 insertados                                                                                                                                                                                             
+
+PL/SQL procedure successfully completed.
+
+johan05@jzrdip02> @programa2.sql
+Conectando como JOHAN05 para  crear tabla con datos.
+Connected.
+
+                                                                                                                                                                                                                 
+
+old  28:    segment_owner              => '&p_user',
+new  28:    segment_owner              => 'JOHAN05',
+v_total_blocks:                32                                                                                                                                                                                
+v_total_bytes:                 262144                                                                                                                                                                            
+v_unused_blocks:               0                                                                                                                                                                                 
+v_unused_blocks_bytes:         0                                                                                                                                                                                 
+v_last_used_extent_file_id:    4                                                                                                                                                                                 
+v_last_used_extent_block_id:   58288                                                                                                                                                                             
+v_last_used_block:             8                                                                                                                                                                                 
+
+PL/SQL procedure successfully completed.
+
+johan05@jzrdip02> spool off

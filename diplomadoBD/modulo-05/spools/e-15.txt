@@ -1,0 +1,200 @@
+idle> @e-15-datos-undo.sql
+Connected.
+
+                                                                                                                                                                                               
+
+1. Mostrando tablespace undo en uso
+
+NAME                                 TYPE        VALUE                                                                                                                                         
+------------------------------------ ----------- ------------------------------                                                                                                                
+undo_tablespace                      string      undotbs2                                                                                                                                      
+[enter]
+
+2. Creando un nuevo tablespace
+Eliminando unodtbs2                                                                                                                                                                            
+
+PL/SQL procedure successfully completed.
+
+
+Tablespace created.
+
+3. Configurando el nuevo TS undo
+
+System altered.
+
+4. Mostrando el parametro undo_tablespace
+
+NAME                                 TYPE        VALUE                                                                                                                                         
+------------------------------------ ----------- ------------------------------                                                                                                                
+undo_tablespace                      string      undotbs2                                                                                                                                      
+Analizar resultados [enter]
+
+5. Mostrando estadísticas de los datos undo
+
+Session altered.
+
+
+BEGIN_TIME          END_TIME               UNDOTSN   UNDOBLKS   TXNCOUNT MAXQUERYID    MAXQUERYLEN ACTIVEBLKS UNEXPIREDBLKS EXPIREDBLKS TUNED_UNDORETENTION TUNED_UNDO_MIN                     
+------------------- ------------------- ---------- ---------- ---------- ------------- ----------- ---------- ------------- ----------- ------------------- --------------                     
+28/01/2023 22:03:07 28/01/2023 22:04:43         10          1          9                         0        160             0           0                2462     41.0333333                     
+28/01/2023 21:53:07 28/01/2023 22:03:07         10        213        567 f3yfg50ga0r8n        1561        160             0           0               22691     378.183333                     
+28/01/2023 21:43:07 28/01/2023 21:53:07          2          4         51 f3yfg50ga0r8n        1558        160           256        3456                2399     39.9833333                     
+28/01/2023 21:33:07 28/01/2023 21:43:07          2          1         15 f3yfg50ga0r8n         953        160           256        3456                1795     29.9166667                     
+28/01/2023 21:23:07 28/01/2023 21:33:07          2          1         92 f3yfg50ga0r8n         349        160           256        3456                1191          19.85                     
+28/01/2023 21:13:07 28/01/2023 21:23:07          2        168        428                         0        160           256        3456                 900             15                     
+28/01/2023 21:03:07 28/01/2023 21:13:07          2         43        403                         0        160             0        3712                 900             15                     
+
+7 rows selected.
+
+6. Analizar resultados [Enter] para continuar
+
+7. MOstrando dba_tablespaces
+
+BEGIN_TIME          END_TIME               UNDOTSN NAME                                                                                                                                        
+------------------- ------------------- ---------- ------------------------------                                                                                                              
+28/01/2023 22:03:07 28/01/2023 22:04:45         10 UNDOTBS2                                                                                                                                    
+28/01/2023 21:53:07 28/01/2023 22:03:07         10 UNDOTBS2                                                                                                                                    
+28/01/2023 21:43:07 28/01/2023 21:53:07          2 UNDOTBS1                                                                                                                                    
+28/01/2023 21:33:07 28/01/2023 21:43:07          2 UNDOTBS1                                                                                                                                    
+28/01/2023 21:23:07 28/01/2023 21:33:07          2 UNDOTBS1                                                                                                                                    
+28/01/2023 21:13:07 28/01/2023 21:23:07          2 UNDOTBS1                                                                                                                                    
+28/01/2023 21:03:07 28/01/2023 21:13:07          2 UNDOTBS1                                                                                                                                    
+
+7 rows selected.
+
+Analizar resultados [Enter] para continuar
+
+8. Mostrando datos del nuevo TS.
+
+TABLESPACE_NAME                TOTAL_BLOQUES BLOQUES_LIBRES %_bloques_libres                                                                                                                   
+------------------------------ ------------- -------------- ----------------                                                                                                                   
+UNDOTBS2                                3840           3552             92.5                                                                                                                   
+
+Analizar resultados [Enter] para continuar
+
+9. creacion y poblado de tabla
+
+PL/SQL procedure successfully completed.
+
+creando tabla
+
+Table created.
+
+creando sequencia
+
+Sequence created.
+
+sequencia actual de los redologs
+
+    GROUP#    THREAD#  SEQUENCE#    SIZE_MB                                                                                                                                                    
+---------- ---------- ---------- ----------                                                                                                                                                    
+         4          1        202         60                                                                                                                                                    
+         5          1        200         60                                                                                                                                                    
+         6          1        201         60                                                                                                                                                    
+
+[Enter] para comenzar con la craga de datos
+
+
+PL/SQL procedure successfully completed.
+
+sequencia actual de los redologs
+
+    GROUP#    THREAD#  SEQUENCE#    SIZE_MB                                                                                                                                                    
+---------- ---------- ---------- ----------                                                                                                                                                    
+         4          1        202         60                                                                                                                                                    
+         5          1        203         60                                                                                                                                                    
+         6          1        201         60                                                                                                                                                    
+
+Analizar resultado, [Enter] para continuar
+
+Mostrando estadisticas de datos undo nuevamente
+
+BEGIN_TIME          END_TIME               UNDOTSN   UNDOBLKS   TXNCOUNT MAXQUERYID    MAXQUERYLEN ACTIVEBLKS UNEXPIREDBLKS EXPIREDBLKS TUNED_UNDORETENTION TUNED_UNDO_MIN                     
+------------------- ------------------- ---------- ---------- ---------- ------------- ----------- ---------- ------------- ----------- ------------------- --------------                     
+28/01/2023 22:03:07 28/01/2023 22:09:07         10        501       2652                         0        160             0           0               11352          189.2                     
+28/01/2023 21:53:07 28/01/2023 22:03:07         10        213        567 f3yfg50ga0r8n        1561        160             0           0               22691     378.183333                     
+28/01/2023 21:43:07 28/01/2023 21:53:07          2          4         51 f3yfg50ga0r8n        1558        160           256        3456                2399     39.9833333                     
+28/01/2023 21:33:07 28/01/2023 21:43:07          2          1         15 f3yfg50ga0r8n         953        160           256        3456                1795     29.9166667                     
+28/01/2023 21:23:07 28/01/2023 21:33:07          2          1         92 f3yfg50ga0r8n         349        160           256        3456                1191          19.85                     
+28/01/2023 21:13:07 28/01/2023 21:23:07          2        168        428                         0        160           256        3456                 900             15                     
+28/01/2023 21:03:07 28/01/2023 21:13:07          2         43        403                         0        160             0        3712                 900             15                     
+
+7 rows selected.
+
+revisnaod datos de TS
+
+TABLESPACE_NAME                TOTAL_BLOQUES BLOQUES_LIBRES %_bloques_libres                                                                                                                   
+------------------------------ ------------- -------------- ----------------                                                                                                                   
+UNDOTBS2                                3840           3056            79.58                                                                                                                   
+
+Analizar resultados [Enter] para continuar
+
+10. Borrar datos para replicar error
+borrano del 1 a 10000
+
+10000 rows deleted.
+
+revisnaod datos de TS
+
+TABLESPACE_NAME                TOTAL_BLOQUES BLOQUES_LIBRES %_bloques_libres                                                                                                                   
+------------------------------ ------------- -------------- ----------------                                                                                                                   
+UNDOTBS2                                3840           1520            39.58                                                                                                                   
+
+Analizar resultados [Enter] para continuar
+
+borrano del 10001 a 20000
+
+10000 rows deleted.
+
+revisnaod datos de TS
+
+TABLESPACE_NAME                TOTAL_BLOQUES BLOQUES_LIBRES %_bloques_libres                                                                                                                   
+------------------------------ ------------- -------------- ----------------                                                                                                                   
+UNDOTBS2                                3840            112             2.92                                                                                                                   
+
+Analizar resultados [Enter] para continuar
+
+borrano del 20001 a 30000
+delete from JOHAN05.random_str_2 where id between 20001 and 30000
+                    *
+ERROR at line 1:
+ORA-30036: unable to extend segment by 8 in undo tablespace 'UNDOTBS2' 
+
+
+revisnaod datos de TS
+
+no rows selected
+
+Analizar resultados [Enter] para continuar
+
+borrano del 30001 a 40000
+delete from JOHAN05.random_str_2 where id between 30001 and 40000
+                    *
+ERROR at line 1:
+ORA-30036: unable to extend segment by 8 in undo tablespace 'UNDOTBS2' 
+
+
+revisnaod datos de TS
+
+no rows selected
+
+Analizar resultados [Enter] para continuar
+
+borrano del 40001 a 50000
+delete from JOHAN05.random_str_2 where id between 40001 and 50000
+                    *
+ERROR at line 1:
+ORA-30036: unable to extend segment by 8 in undo tablespace 'UNDOTBS2' 
+
+
+revisnaod datos de TS
+
+no rows selected
+
+Analizar resultados [Enter] para continuar
+
+haciendo rollback
+
+Rollback complete.
+
+sys@jzrdip02> exit

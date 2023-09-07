@@ -1,0 +1,110 @@
+idle> @scripts/s-03-modos-conexion.sql
+configurando modo compartido
+Connected.
+
+                                                                                                                                                                                                                       
+
+mostrando servicios del listener
+
+configurando dispatcher
+
+System altered.
+
+configurando 3 shared servers
+
+System altered.
+
+configurando DRCP
+habilitando pool existente por defult
+
+PL/SQL procedure successfully completed.
+
+configurando pool servers minimos existentes en el pool
+
+PL/SQL procedure successfully completed.
+
+configurando pool servers maximos existentes en el pool
+
+PL/SQL procedure successfully completed.
+
+configurando tiempo de vida maximo en el pool
+
+PL/SQL procedure successfully completed.
+
+configurando timepo de inactividad en el cliente
+
+PL/SQL procedure successfully completed.
+
+notificando al listener la nueva configuracion
+
+System altered.
+
+mostrando servicios del listener nuevamente
+
+Analizar resultados [Enter] para continuar
+
+reiniciando instancia
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                                                                              
+Fixed Size                  8901696 bytes                                                                                                                                                                              
+Variable Size             562036736 bytes                                                                                                                                                                              
+Database Buffers          121634816 bytes                                                                                                                                                                              
+Redo Buffers                7872512 bytes                                                                                                                                                                              
+In-Memory Area            104857600 bytes                                                                                                                                                                              
+Database mounted.
+Database opened.
+
+System altered.
+
+revisando servicios del listener despues del reincio
+
+Abrir tnsnames.ora, agregar los tres aliases para las conexiones con los nuevos modos
+[Enter] al terminar
+
+probando modo dedicado
+Connected.
+
+                                                                                                                                                                                                                       
+
+
+SERVER                                                                                                                                                                                                                 
+---------                                                                                                                                                                                                              
+DEDICATED                                                                                                                                                                                                              
+DEDICATED                                                                                                                                                                                                              
+
+probando modo pool DRCP
+Connected.
+
+                                                                                                                                                                                                                       
+
+
+SERVER                                                                                                                                                                                                                 
+---------                                                                                                                                                                                                              
+POOLED                                                                                                                                                                                                                 
+DEDICATED                                                                                                                                                                                                              
+
+Connected.
+
+                                                                                                                                                                                                                       
+
+
+SERVER                                                                                                                                                                                                                 
+---------                                                                                                                                                                                                              
+SHARED                                                                                                                                                                                                                 
+DEDICATED                                                                                                                                                                                                              
+
+revisando servicios del listener en modo compartido
+
+Analizar resultados [Enter] para continuar
+
+mostrando datos de v$circuit
+
+CIRCUIT          DISPATCHER       STATUS                  KBS                                                                                                                                                          
+---------------- ---------------- ---------------- ----------                                                                                                                                                          
+0000000069834028 000000007531C838 NORMAL           7.36621094                                                                                                                                                          
+
+sys@jzrdip02> exit

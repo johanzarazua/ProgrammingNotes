@@ -1,0 +1,257 @@
+idle> @e-03-pctfree.sql
+Connected.
+
+                                                                                                                                                                                                                
+
+creando tabla con pctfee 0
+
+Table created.
+
+creando tabla con pctfee 50
+
+Table created.
+
+presione [Enter] para comenzar con la carga
+
+
+PL/SQL procedure successfully completed.
+
+
+Commit complete.
+
+consultando bloques y sus registros para t02_random_str_0
+
+FILE_NUMBER BLOCK_NUMBER TOTAL_REGISTROS                                                                                                                                                                        
+----------- ------------ ---------------                                                                                                                                                                        
+          4        54515             336                                                                                                                                                                        
+          4        54516             336                                                                                                                                                                        
+          4        54517             336                                                                                                                                                                        
+          4        54518             336                                                                                                                                                                        
+          4        54519             336                                                                                                                                                                        
+          4        57992             336                                                                                                                                                                        
+          4        57993             336                                                                                                                                                                        
+          4        57994             336                                                                                                                                                                        
+          4        57995             336                                                                                                                                                                        
+          4        57996             336                                                                                                                                                                        
+          4        57997             336                                                                                                                                                                        
+          4        57998             336                                                                                                                                                                        
+          4        57999             336                                                                                                                                                                        
+          4        58017             336                                                                                                                                                                        
+          4        58018             336                                                                                                                                                                        
+          4        58019             336                                                                                                                                                                        
+          4        58020             336                                                                                                                                                                        
+          4        58021             336                                                                                                                                                                        
+          4        58022             336                                                                                                                                                                        
+          4        58023             336                                                                                                                                                                        
+          4        58040             336                                                                                                                                                                        
+          4        58041             336                                                                                                                                                                        
+          4        58042             336                                                                                                                                                                        
+          4        58043             336                                                                                                                                                                        
+          4        58044             336                                                                                                                                                                        
+          4        58045             336                                                                                                                                                                        
+          4        58046             336                                                                                                                                                                        
+
+FILE_NUMBER BLOCK_NUMBER TOTAL_REGISTROS                                                                                                                                                                        
+----------- ------------ ---------------                                                                                                                                                                        
+          4        58047             336                                                                                                                                                                        
+          4        58068             336                                                                                                                                                                        
+          4        58069             256                                                                                                                                                                        
+
+30 rows selected.
+
+consultando bloques y sus registros para t02_random_str_50
+
+FILE_NUMBER BLOCK_NUMBER TOTAL_REGISTROS                                                                                                                                                                        
+----------- ------------ ---------------                                                                                                                                                                        
+          4        54523             168                                                                                                                                                                        
+          4        54524             168                                                                                                                                                                        
+          4        54525             168                                                                                                                                                                        
+          4        54526             168                                                                                                                                                                        
+          4        54527             168                                                                                                                                                                        
+          4        57984             168                                                                                                                                                                        
+          4        57985             168                                                                                                                                                                        
+          4        57986             168                                                                                                                                                                        
+          4        57987             168                                                                                                                                                                        
+          4        57988             168                                                                                                                                                                        
+          4        57989             168                                                                                                                                                                        
+          4        57990             168                                                                                                                                                                        
+          4        57991             168                                                                                                                                                                        
+          4        58001             168                                                                                                                                                                        
+          4        58002             168                                                                                                                                                                        
+          4        58003             168                                                                                                                                                                        
+          4        58004             168                                                                                                                                                                        
+          4        58005             168                                                                                                                                                                        
+          4        58006             168                                                                                                                                                                        
+          4        58007             168                                                                                                                                                                        
+          4        58008             168                                                                                                                                                                        
+          4        58009             168                                                                                                                                                                        
+          4        58010             168                                                                                                                                                                        
+          4        58011             168                                                                                                                                                                        
+          4        58012             168                                                                                                                                                                        
+          4        58013             168                                                                                                                                                                        
+          4        58014             168                                                                                                                                                                        
+
+FILE_NUMBER BLOCK_NUMBER TOTAL_REGISTROS                                                                                                                                                                        
+----------- ------------ ---------------                                                                                                                                                                        
+          4        58015             168                                                                                                                                                                        
+          4        58025             168                                                                                                                                                                        
+          4        58026             168                                                                                                                                                                        
+          4        58027             168                                                                                                                                                                        
+          4        58028             168                                                                                                                                                                        
+          4        58029             168                                                                                                                                                                        
+          4        58030             168                                                                                                                                                                        
+          4        58031             168                                                                                                                                                                        
+          4        58032             168                                                                                                                                                                        
+          4        58033             168                                                                                                                                                                        
+          4        58034             168                                                                                                                                                                        
+          4        58035             168                                                                                                                                                                        
+          4        58036             168                                                                                                                                                                        
+          4        58037             168                                                                                                                                                                        
+          4        58038             168                                                                                                                                                                        
+          4        58039             168                                                                                                                                                                        
+          4        58049             168                                                                                                                                                                        
+          4        58050             168                                                                                                                                                                        
+          4        58051             168                                                                                                                                                                        
+          4        58052             168                                                                                                                                                                        
+          4        58053             168                                                                                                                                                                        
+          4        58054             168                                                                                                                                                                        
+          4        58055             168                                                                                                                                                                        
+          4        58056             168                                                                                                                                                                        
+          4        58057             168                                                                                                                                                                        
+          4        58058             168                                                                                                                                                                        
+          4        58059             168                                                                                                                                                                        
+
+FILE_NUMBER BLOCK_NUMBER TOTAL_REGISTROS                                                                                                                                                                        
+----------- ------------ ---------------                                                                                                                                                                        
+          4        58060             168                                                                                                                                                                        
+          4        58061             168                                                                                                                                                                        
+          4        58062             168                                                                                                                                                                        
+          4        58063             168                                                                                                                                                                        
+          4        58076             168                                                                                                                                                                        
+          4        58077              88                                                                                                                                                                        
+
+60 rows selected.
+
+johan05@jzrdip02> exitidle> ------------------------------------
+idle> prompt segunda ejecucion
+segunda ejecucion
+idle> @e-03-pctfree.sql
+Connected.
+
+                                                                                                                                                                                                                               
+
+creando tabla con pctfee 0
+
+Table created.
+
+creando tabla con pctfee 50
+
+Table created.
+
+presione [Enter] para comenzar con la carga
+
+
+PL/SQL procedure successfully completed.
+
+
+Commit complete.
+
+consultando bloques y sus registros para t02_random_str_0
+
+FILE_NUMBER BLOCK_NUMBER TOTAL_REGISTROS                                                                                                                                                                                       
+----------- ------------ ---------------                                                                                                                                                                                       
+          4        54515             336                                                                                                                                                                                       
+          4        54516             336                                                                                                                                                                                       
+          4        54517             336                                                                                                                                                                                       
+          4        54518             336                                                                                                                                                                                       
+          4        54519             336                                                                                                                                                                                       
+          4        57992             336                                                                                                                                                                                       
+          4        57993             336                                                                                                                                                                                       
+          4        57994             336                                                                                                                                                                                       
+          4        57995             336                                                                                                                                                                                       
+          4        57996             336                                                                                                                                                                                       
+          4        57997             336                                                                                                                                                                                       
+          4        57998             336                                                                                                                                                                                       
+          4        57999             336                                                                                                                                                                                       
+          4        58017             336                                                                                                                                                                                       
+          4        58018             336                                                                                                                                                                                       
+          4        58019             336                                                                                                                                                                                       
+          4        58020             336                                                                                                                                                                                       
+          4        58021             336                                                                                                                                                                                       
+          4        58022             336                                                                                                                                                                                       
+          4        58023             336                                                                                                                                                                                       
+          4        58040             336                                                                                                                                                                                       
+          4        58041             336                                                                                                                                                                                       
+
+FILE_NUMBER BLOCK_NUMBER TOTAL_REGISTROS                                                                                                                                                                                       
+----------- ------------ ---------------                                                                                                                                                                                       
+          4        58042             336                                                                                                                                                                                       
+          4        58043             336                                                                                                                                                                                       
+          4        58044             336                                                                                                                                                                                       
+          4        58045             336                                                                                                                                                                                       
+          4        58046             336                                                                                                                                                                                       
+          4        58047             336                                                                                                                                                                                       
+          4        58070             336                                                                                                                                                                                       
+          4        58071             256                                                                                                                                                                                       
+
+30 rows selected.
+
+consultando bloques y sus registros para t02_random_str_50
+
+FILE_NUMBER BLOCK_NUMBER TOTAL_REGISTROS                                                                                                                                                                                       
+----------- ------------ ---------------                                                                                                                                                                                       
+          4        54523             168                                                                                                                                                                                       
+          4        54524             168                                                                                                                                                                                       
+          4        54525             168                                                                                                                                                                                       
+          4        54526             168                                                                                                                                                                                       
+          4        54527             168                                                                                                                                                                                       
+          4        57984             168                                                                                                                                                                                       
+          4        57985             168                                                                                                                                                                                       
+          4        57986             168                                                                                                                                                                                       
+          4        57987             168                                                                                                                                                                                       
+          4        57988             168                                                                                                                                                                                       
+          4        57989             168                                                                                                                                                                                       
+          4        57990             168                                                                                                                                                                                       
+          4        57991             168                                                                                                                                                                                       
+          4        58001             168                                                                                                                                                                                       
+          4        58002             168                                                                                                                                                                                       
+          4        58003             168                                                                                                                                                                                       
+          4        58004             168                                                                                                                                                                                       
+          4        58005             168                                                                                                                                                                                       
+          4        58006             168                                                                                                                                                                                       
+          4        58007             168                                                                                                                                                                                       
+          4        58008             168                                                                                                                                                                                       
+          4        58009             168                                                                                                                                                                                       
+
+FILE_NUMBER BLOCK_NUMBER TOTAL_REGISTROS                                                                                                                                                                                       
+----------- ------------ ---------------                                                                                                                                                                                       
+          4        58010             168                                                                                                                                                                                       
+          4        58011             168                                                                                                                                                                                       
+          4        58012             168                                                                                                                                                                                       
+          4        58013             168                                                                                                                                                                                       
+          4        58014             168                                                                                                                                                                                       
+          4        58015             168                                                                                                                                                                                       
+          4        58025             168                                                                                                                                                                                       
+          4        58026             168                                                                                                                                                                                       
+          4        58027             168                                                                                                                                                                                       
+          4        58028             168                                                                                                                                                                                       
+          4        58029             168                                                                                                                                                                                       
+          4        58030             168                                                                                                                                                                                       
+          4        58031             168                                                                                                                                                                                       
+          4        58032             168                                                                                                                                                                                       
+          4        58033             168                                                                                                                                                                                       
+          4        58034             168                                                                                                                                                                                       
+          4        58035             168                                                                                                                                                                                       
+          4        58036             168                                                                                                                                                                                       
+          4        58037             168                                                                                                                                                                                       
+          4        58038             168                                                                                                                                                                                       
+          4        58039             168                                                                                                                                                                                       
+          4        58049             168                                                                                                                                                                                       
+
+FILE_NUMBER BLOCK_NUMBER TOTAL_REGISTROS                                                                                                                                                                                       
+----------- ------------ ---------------                                                                                                                                                                                       
+          4        58050             168                                                                                                                                                                                       
+          4        58051             168                                                                                                                                                                                       
+          4        58052             168                                                                                                                                                                                       
+          4        58053             168                                                                                                                                                                                       
+          4        58054             168                                     

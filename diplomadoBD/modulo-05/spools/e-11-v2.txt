@@ -1,0 +1,240 @@
+idle> @e-11-redo-logs-oracle.sql
+Connected.
+
+                                                                                                                                                       
+
+1. Mostrando archvios en el S.O.
+
+2 a 4. COnsultas independeintes.
+5. Agregar nuevos grupos de redo con dos miembros
+ceando grupo 4 de redo
+
+Database altered.
+
+ceando grupo 5 de redo
+
+Database altered.
+
+ceando grupo 6 de redo
+
+Database altered.
+
+6. Agregar tercer miembro a cada grupo
+
+Database altered.
+
+
+Database altered.
+
+
+Database altered.
+
+7. Consultar nuevamente los grupos de redo
+
+    GROUP#    THREAD#  SEQUENCE#      BYTES  BLOCKSIZE    MEMBERS ARC STATUS           FIRST_CHANGE# FIRST_TIME         NEXT_CHANGE# NEXT_TIME         
+---------- ---------- ---------- ---------- ---------- ---------- --- ---------------- ------------- ------------------ ------------ ------------------
+    CON_ID                                                                                                                                             
+----------                                                                                                                                             
+         1          1        181   52428800        512          3 NO  INACTIVE               4654149 06-JAN-23               4758628 07-JAN-23         
+         0                                                                                                                                             
+                                                                                                                                                       
+         2          1        182   52428800        512          3 NO  INACTIVE               4758628 07-JAN-23               4771191 07-JAN-23         
+         0                                                                                                                                             
+                                                                                                                                                       
+         3          1        183   52428800        512          3 NO  CURRENT                4771191 07-JAN-23            1.8447E+19                   
+         0                                                                                                                                             
+                                                                                                                                                       
+         4          1          0   62914560        512          3 YES UNUSED                       0                               0                   
+         0                                                                                                                                             
+                                                                                                                                                       
+         5          1          0   62914560        512          3 YES UNUSED                       0                               0                   
+         0                                                                                                                                             
+                                                                                                                                                       
+         6          1          0   62914560        512          3 YES UNUSED                       0                               0                   
+         0                                                                                                                                             
+                                                                                                                                                       
+
+6 rows selected.
+
+Analizar el resultado [Enter] para continuar
+
+8. Consultar nuevamente los miembros
+
+    GROUP# STATUS  TYPE    MEMBER                                   IS_     CON_ID                                                                     
+---------- ------- ------- ---------------------------------------- --- ----------                                                                     
+         1         ONLINE  /unam-diplomado-bd/disk-01/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo01a.log                                                                                                  
+                                                                                                                                                       
+         1         ONLINE  /unam-diplomado-bd/disk-02/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo01b.log                                                                                                  
+                                                                                                                                                       
+         1         ONLINE  /unam-diplomado-bd/disk-03/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo01c.log                                                                                                  
+                                                                                                                                                       
+         2         ONLINE  /unam-diplomado-bd/disk-01/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo02a.log                                                                                                  
+                                                                                                                                                       
+         2         ONLINE  /unam-diplomado-bd/disk-02/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo02b.log                                                                                                  
+                                                                                                                                                       
+         2         ONLINE  /unam-diplomado-bd/disk-03/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo02c.log                                                                                                  
+                                                                                                                                                       
+         3         ONLINE  /unam-diplomado-bd/disk-01/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo03a.log                                                                                                  
+                                                                                                                                                       
+         3         ONLINE  /unam-diplomado-bd/disk-02/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo03b.log                                                                                                  
+
+    GROUP# STATUS  TYPE    MEMBER                                   IS_     CON_ID                                                                     
+---------- ------- ------- ---------------------------------------- --- ----------                                                                     
+                                                                                                                                                       
+         3         ONLINE  /unam-diplomado-bd/disk-03/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo03c.log                                                                                                  
+                                                                                                                                                       
+         4         ONLINE  /unam-diplomado-bd/disk-01/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo04a_60.log                                                                                               
+                                                                                                                                                       
+         4         ONLINE  /unam-diplomado-bd/disk-02/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo04b_60.log                                                                                               
+                                                                                                                                                       
+         5         ONLINE  /unam-diplomado-bd/disk-01/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo05a_60.log                                                                                               
+                                                                                                                                                       
+         5         ONLINE  /unam-diplomado-bd/disk-02/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo05b_60.log                                                                                               
+                                                                                                                                                       
+         6         ONLINE  /unam-diplomado-bd/disk-01/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo06a_60.log                                                                                               
+                                                                                                                                                       
+         6         ONLINE  /unam-diplomado-bd/disk-02/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo06b_60.log                                                                                               
+                                                                                                                                                       
+         4 INVALID ONLINE  /unam-diplomado-bd/disk-03/app/oracle/or NO           0                                                                     
+
+    GROUP# STATUS  TYPE    MEMBER                                   IS_     CON_ID                                                                     
+---------- ------- ------- ---------------------------------------- --- ----------                                                                     
+                           adata/JZRDIP02/redo04c_60.log                                                                                               
+                                                                                                                                                       
+         5 INVALID ONLINE  /unam-diplomado-bd/disk-03/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo05c_60.log                                                                                               
+                                                                                                                                                       
+         6 INVALID ONLINE  /unam-diplomado-bd/disk-03/app/oracle/or NO           0                                                                     
+                           adata/JZRDIP02/redo06c_60.log                                                                                               
+                                                                                                                                                       
+
+18 rows selected.
+
+9. Forzar un log switch para liberar grupos 1, 2 y 3.
+Grupo en uso: 3                                                                                                                                        
+Grupo en uso: 4                                                                                                                                        
+
+PL/SQL procedure successfully completed.
+
+10. Confirmando grupo actual
+
+    GROUP#    THREAD#  SEQUENCE#      BYTES  BLOCKSIZE    MEMBERS ARC STATUS           FIRST_CHANGE# FIRST_TIME         NEXT_CHANGE# NEXT_TIME         
+---------- ---------- ---------- ---------- ---------- ---------- --- ---------------- ------------- ------------------ ------------ ------------------
+    CON_ID                                                                                                                                             
+----------                                                                                                                                             
+         1          1        181   52428800        512          3 NO  INACTIVE               4654149 06-JAN-23               4758628 07-JAN-23         
+         0                                                                                                                                             
+                                                                                                                                                       
+         2          1        182   52428800        512          3 NO  INACTIVE               4758628 07-JAN-23               4771191 07-JAN-23         
+         0                                                                                                                                             
+                                                                                                                                                       
+         3          1        183   52428800        512          3 NO  ACTIVE                 4771191 07-JAN-23               4784677 07-JAN-23         
+         0                                                                                                                                             
+                                                                                                                                                       
+         4          1        184   62914560        512          3 NO  CURRENT                4784677 07-JAN-23            1.8447E+19                   
+         0                                                                                                                                             
+                                                                                                                                                       
+         5          1          0   62914560        512          3 YES UNUSED                       0                               0                   
+         0                                                                                                                                             
+                                                                                                                                                       
+         6          1          0   62914560        512          3 YES UNUSED                       0                               0                   
+         0                                                                                                                                             
+                                                                                                                                                       
+
+6 rows selected.
+
+Analizar resultado, [Enter] para continuar
+
+11. Validnando que los grupos 1 a 3 no tengan status ACTIVE
+Forzando checkpoint para sincornizar data files con db_buffer                                                                                          
+
+PL/SQL procedure successfully completed.
+
+12. Confirmando que no existen grupos ACTIVE
+
+    GROUP#    THREAD#  SEQUENCE#      BYTES  BLOCKSIZE    MEMBERS ARC STATUS           FIRST_CHANGE# FIRST_TIME         NEXT_CHANGE# NEXT_TIME         
+---------- ---------- ---------- ---------- ---------- ---------- --- ---------------- ------------- ------------------ ------------ ------------------
+    CON_ID                                                                                                                                             
+----------                                                                                                                                             
+         1          1        181   52428800        512          3 NO  INACTIVE               4654149 06-JAN-23               4758628 07-JAN-23         
+         0                                                                                                                                             
+                                                                                                                                                       
+         2          1        182   52428800        512          3 NO  INACTIVE               4758628 07-JAN-23               4771191 07-JAN-23         
+         0                                                                                                                                             
+                                                                                                                                                       
+         3          1        183   52428800        512          3 NO  INACTIVE               4771191 07-JAN-23               4784677 07-JAN-23         
+         0                                                                                                                                             
+                                                                                                                                                       
+         4          1        184   62914560        512          3 NO  CURRENT                4784677 07-JAN-23            1.8447E+19                   
+         0                                                                                                                                             
+                                                                                                                                                       
+         5          1          0   62914560        512          3 YES UNUSED                       0                               0                   
+         0                                                                                                                                             
+                                                                                                                                                       
+         6          1          0   62914560        512          3 YES UNUSED                       0                               0                   
+         0                                                                                                                                             
+                                                                                                                                                       
+
+6 rows selected.
+
+Analizar resultado, [Enter] para continuar
+
+13. Eliminar grupos 1, 2 y 3
+
+Database altered.
+
+
+Database altered.
+
+
+Database altered.
+
+14. Consultar nuevamente los grupos de redo
+
+    GROUP#    THREAD#  SEQUENCE#      BYTES  BLOCKSIZE    MEMBERS ARC STATUS           FIRST_CHANGE# FIRST_TIME         NEXT_CHANGE# NEXT_TIME         
+---------- ---------- ---------- ---------- ---------- ---------- --- ---------------- ------------- ------------------ ------------ ------------------
+    CON_ID                                                                                                                                             
+----------                                                                                                                                             
+         4          1        184   62914560        512          3 NO  CURRENT                4784677 07-JAN-23            1.8447E+19                   
+         0                                                                                                                                             
+                                                                                                                                                       
+         5          1          0   62914560        512          3 YES UNUSED                       0                               0                   
+         0                                                                                                                                             
+                                                                                                                                                       
+         6          1          0   62914560        512          3 YES UNUSED                       0                               0                   
+         0                                                                                                                                             
+                                                                                                                                                       
+
+Analizar el resultado [Enter] para continuar
+
+15 y 16 eliminar archivos de redo en S.O.
+eliminando archivos del grupo 1.
+
+
+
+eliminando archivos del grupo 2.
+
+
+
+eliminando archivos del grupo 3.
+
+
+
+17. Mostrando archivos en S.O.
+
+Listo!!!

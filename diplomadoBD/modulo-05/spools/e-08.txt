@@ -1,0 +1,157 @@
+idle> @e-08-encrypt-ts-oracle.sql
+Connected.
+
+                                                                                                                                                                              
+
+creando y abriendo wallet
+
+System altered.
+
+creando nuevo TS
+
+Tablespace created.
+
+otorgando quota
+old   1: alter user &p_user quota unlimited on m05_encrypted_ts
+new   1: alter user JOHAN05 quota unlimited on m05_encrypted_ts
+
+User altered.
+
+comprobando configuracion de los ts
+
+TABLESPACE_NAME                ENC                                                                                                                                            
+------------------------------ ---                                                                                                                                            
+SYSTEM                         NO                                                                                                                                             
+SYSAUX                         NO                                                                                                                                             
+UNDOTBS1                       NO                                                                                                                                             
+TEMPTS1                        NO                                                                                                                                             
+USERS                          NO                                                                                                                                             
+M05_ENCRYPTED_TS               YES                                                                                                                                            
+
+6 rows selected.
+
+[Enter] para continuar
+
+conectando como johan05
+Connected.
+
+                                                                                                                                                                              
+
+creaando tabla mensaje_seguro en ts m05_encrypted_ts
+
+Table created.
+
+insertando registros
+
+1 row created.
+
+
+1 row created.
+
+
+Commit complete.
+
+consultando datos
+
+        ID MENSAJE                                                                                                                                                            
+---------- --------------------                                                                                                                                               
+         1 mensaje 1                                                                                                                                                          
+         2 mensaje 2                                                                                                                                                          
+
+creaando tabla mensaje_inseguro en ts users
+
+Table created.
+
+insertando registros
+
+1 row created.
+
+
+1 row created.
+
+
+Commit complete.
+
+consultando datos
+
+        ID MENSAJE                                                                                                                                                            
+---------- --------------------                                                                                                                                               
+         1 mensaje 1                                                                                                                                                          
+         2 mensaje 2                                                                                                                                                          
+
+forzando sincronizacion (usando sys)
+Connected.
+
+                                                                                                                                                                              
+
+
+System altered.
+
+[Enter] para realizar la busqueda del texto en el TS cifrados
+
+
+Reiniciando instancia [Enter] para continuar
+
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                                     
+Fixed Size                  8901696 bytes                                                                                                                                     
+Variable Size             574619648 bytes                                                                                                                                     
+Database Buffers          109051904 bytes                                                                                                                                     
+Redo Buffers                7872512 bytes                                                                                                                                     
+In-Memory Area            104857600 bytes                                                                                                                                     
+Database mounted.
+Database opened.
+consultando datos nuevamente
+Connected.
+
+                                                                                                                                                                              
+
+select * from mensaje_seguro
+              *
+ERROR at line 1:
+ORA-28365: wallet is not open 
+
+
+[Enter] para continuar y corregir el problema
+
+Connected.
+
+                                                                                                                                                                              
+
+mostrando datos nuevamente
+Connected.
+
+                                                                                                                                                                              
+
+select * from mensaje_seguro
+              *
+ERROR at line 1:
+ORA-28365: wallet is not open 
+
+
+[Enter] para realizar limpieza
+
+drop table mensaje_seguro
+           *
+ERROR at line 1:
+ORA-28365: wallet is not open 
+
+
+
+Table dropped.
+
+Connected.
+
+                                                                                                                                                                              
+
+drop tablespace m05_encrypted_ts including contents and datafiles
+*
+ERROR at line 1:
+ORA-28365: wallet is not open 
+
+
+Listo!

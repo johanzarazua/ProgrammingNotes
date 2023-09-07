@@ -1,0 +1,285 @@
+idle> @e-04-row-chaining.sql
+Conectando como sysdba
+Connected.
+
+                                                                                                                                                                                                                
+
+Mostrando el contenido del parametro db_block_size
+
+NAME                                 TYPE        VALUE                                                                                                                                                          
+------------------------------------ ----------- ------------------------------                                                                                                                                 
+db_block_size                        integer     8192                                                                                                                                                           
+Conectando como JOHAN05 para generar una tabla grande
+Connected.
+
+                                                                                                                                                                                                                
+
+
+PL/SQL procedure successfully completed.
+
+
+Table created.
+
+Insertando un primer registro
+
+1 row created.
+
+
+Commit complete.
+
+Mostrando el tamaño de la columna c1
+
+LENGTH(C1)                                                                                                                                                                                                      
+----------                                                                                                                                                                                                      
+      2000                                                                                                                                                                                                      
+
+Actualizando estadisticas
+
+Table analyzed.
+
+Consultando metadatos
+
+TABLESPACE_NAME                  PCT_FREE   PCT_USED   NUM_ROWS     BLOCKS EMPTY_BLOCKS AVG_SPACE_KB  CHAIN_CNT AVG_ROW_LEN_KB                                                                                  
+------------------------------ ---------- ---------- ---------- ---------- ------------ ------------ ---------- --------------                                                                                  
+USERS                                  10                     1          5            3   5.91894531          1     9.79199219                                                                                  
+
+Analizar [enter] corregir problema
+
+Creando un nuevo tablespace con bloques de 16k, conectando con sys
+Connected.
+
+                                                                                                                                                                                                                
+
+
+System altered.
+
+
+PL/SQL procedure successfully completed.
+
+
+Tablespace created.
+
+Otorgando quota de almacenamiento al usuario JOHAN05 en el nuevo tablespace
+old   1: alter user &p_user quota unlimited on dip_m05_01
+new   1: alter user JOHAN05 quota unlimited on dip_m05_01
+
+User altered.
+
+Moviendo datos al nuevo TS, conectando como JOHAN05
+Connected.
+
+                                                                                                                                                                                                                
+
+
+Table altered.
+
+Reconstruyendo el indice por efectos del cambio del TS
+
+Index altered.
+
+Actualizando estadisticas nuevamente
+
+Table analyzed.
+
+Consultando metadatos nuevamente
+
+TABLESPACE_NAME                  PCT_FREE   PCT_USED   NUM_ROWS     BLOCKS EMPTY_BLOCKS AVG_SPACE_KB  CHAIN_CNT AVG_ROW_LEN_KB                                                                                  
+------------------------------ ---------- ---------- ---------- ---------- ------------ ------------ ---------- --------------                                                                                  
+DIP_M05_01                             10                     1          4           60   6.06933594          0     9.78613281                                                                                  
+
+Analizar [enter]
+
+Mostrando el DDL de la tabla modificada
+old   1: select dbms_metadata.get_ddl('TABLE','T03_ROW_CHAINING','&p_user')
+new   1: select dbms_metadata.get_ddl('TABLE','T03_ROW_CHAINING','JOHAN05')
+
+                                                                                                                                                                                                                
+  CREATE TABLE "JOHAN05"."T03_ROW_CHAINING"                                                                                                                                                                     
+   (	"ID" NUMBER(10,0),                                                                                                                                                                                         
+	"C1" CHAR(2000) DEFAULT 'A',                                                                                                                                                                                   
+	"C2" CHAR(2000) DEFAULT 'B',                                                                                                                                                                                   
+	"C3" CHAR(2000) DEFAULT 'C',                                                                                                                                                                                   
+	"C4" CHAR(2000) DEFAULT 'D',                                                                                                                                                                                   
+	"C5" CHAR(2000) DEFAULT 'E',                                                                                                                                                                                   
+	 CONSTRAINT "T03_ROW_CHAINING_PK" PRIMARY KEY ("ID")                                                                                                                                                           
+  USING INDEX PCTFREE 10 INITRANS 2 MAXT                                                                                                                                                                        
+RANS 255 COMPUTE STATISTICS                                                                                                                                                                                     
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 M                                                                                                                                                             
+AXEXTENTS 2147483645                                                                                                                                                                                            
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1                                                                                                                                                                   
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_                                                                                                                                                           
+CACHE DEFAULT)                                                                                                                                                                                                  
+  TABLESPACE "USERS"  ENABLE                                                                                                                                                                                    
+   ) SEGMENT CREATION IMMEDIATE                                                                                                                                                                                 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS                                                                                                                                                                     
+ 255                                                                                                                                                                                                            
+ NOCOMPRESS LOGGING                                                                                                                                                                                             
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXE                                                                                                                                                          
+XTENTS 2147483645                                                                                                                                                                                               
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUP                                                                                                                                                                      
+S 1                                                                                                                                                                                                             
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CAC                                                                                                                                                        
+HE DEFAULT)                                                                                                                                                                                                     
+  TABLESPACE "DIP_M05_01"                                                                                                                                                                                       
+                                                                                                                                                                                                                
+
+Prueba terminada, [enter] limpieza
+
+Eliminando tabla t03_row_chaining
+
+Table dropped.
+
+Eliminando TS
+Connected.
+
+                                                                                                                                                                                                                
+
+drop tablespace dip_m05_01 including content and datafiles
+                                     *
+ERROR at line 1:
+ORA-01911: CONTENTS keyword expected 
+
+
+idle> 
+idle> ------------------------------------
+idle> prompt segunda ejecucion
+segunda ejecucion
+idle> @e-04-row-chaining.sql
+Conectando como sysdba
+Connected.
+
+                                                                                                                                                                                                                               
+
+Mostrando el contenido del parametro db_block_size
+
+NAME                                 TYPE        VALUE                                                                                                                                                                         
+------------------------------------ ----------- ------------------------------                                                                                                                                                
+db_block_size                        integer     8192                                                                                                                                                                          
+Conectando como JOHAN05 para generar una tabla grande
+Connected.
+
+                                                                                                                                                                                                                               
+
+
+PL/SQL procedure successfully completed.
+
+
+Table created.
+
+Insertando un primer registro
+
+1 row created.
+
+
+Commit complete.
+
+Mostrando el tamaño de la columna c1
+
+LENGTH(C1)                                                                                                                                                                                                                      
+----------                                                                                                                                                                                                                      
+      2000                                                                                                                                                                                                                      
+
+Actualizando estadisticas
+
+Table analyzed.
+
+Consultando metadatos
+
+TABLESPACE_NAME                  PCT_FREE   PCT_USED   NUM_ROWS     BLOCKS EMPTY_BLOCKS AVG_SPACE_KB  CHAIN_CNT AVG_ROW_LEN_KB                                                                                                  
+------------------------------ ---------- ---------- ---------- ---------- ------------ ------------ ---------- --------------                                                                                                  
+USERS                                  10                     1          5            3   5.91894531          1     9.79199219                                                                                                  
+
+Analizar [enter] corregir problema
+
+Creando un nuevo tablespace con bloques de 16k, conectando con sys
+Connected.
+
+                                                                                                                                                                                                                                
+
+
+System altered.
+
+
+PL/SQL procedure successfully completed.
+
+
+Tablespace created.
+
+Otorgando quota de almacenamiento al usuario JOHAN05 en el nuevo tablespace
+old   1: alter user &p_user quota unlimited on dip_m05_01
+new   1: alter user JOHAN05 quota unlimited on dip_m05_01
+
+User altered.
+
+Moviendo datos al nuevo TS, conectando como JOHAN05
+Connected.
+
+                                                                                                                                                                                                                                
+
+
+Table altered.
+
+Reconstruyendo el indice por efectos del cambio del TS
+
+Index altered.
+
+Actualizando estadisticas nuevamente
+
+Table analyzed.
+
+Consultando metadatos nuevamente
+
+TABLESPACE_NAME                  PCT_FREE   PCT_USED   NUM_ROWS     BLOCKS EMPTY_BLOCKS AVG_SPACE_KB  CHAIN_CNT AVG_ROW_LEN_KB                                                                                                  
+------------------------------ ---------- ---------- ---------- ---------- ------------ ------------ ---------- --------------                                                                                                  
+DIP_M05_01                             10                     1          4           60   6.06933594          0     9.78613281                                                                                                  
+
+Analizar [enter]
+
+Mostrando el DDL de la tabla modificada
+old   1: select dbms_metadata.get_ddl('TABLE','T03_ROW_CHAINING','&p_user')
+new   1: select dbms_metadata.get_ddl('TABLE','T03_ROW_CHAINING','JOHAN05')
+
+                                                                                                                                                                                                                                
+  CREATE TABLE "JOHAN05"."T03_ROW_CHAINING"                                                                                                                                                                                     
+   (	"ID" NUMBER(10,0),                                                                                                                                                                                                         
+	"C1" CHAR(2000) DEFAULT 'A',                                                                                                                                                                                                   
+	"C2" CHAR(2000) DEFAULT 'B',                                                                                                                                                                                                   
+	"C3" CHAR(2000) DEFAULT 'C',                                                                                                                                                                                                   
+	"C4" CHAR(2000) DEFAULT 'D',                                                                                                                                                                                                   
+	"C5" CHAR(2000) DEFAULT 'E',                                                                                                                                                                                                   
+	 CONSTRAINT "T03_ROW_CHAINING_PK" PRIMARY KEY ("ID")                                                                                                                                                                           
+  USING INDEX PCTFREE 10 INITRANS 2 MAXT                                                                                                                                                                                        
+RANS 255 COMPUTE STATISTICS                                                                                                                                                                                                     
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 M                                                                                                                                                                             
+AXEXTENTS 2147483645                                                                                                                                                                                                            
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1                                                                                                                                                                                   
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_                                                                                                                                                                           
+CACHE DEFAULT)                                                                                                                                                                                                                  
+  TABLESPACE "USERS"  ENABLE                                                                                                                                                                                                    
+   ) SEGMENT CREATION IMMEDIATE                                                                                                                                                                                                 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS                                                                                                                                                                                     
+ 255                                                                                                                                                                                                                            
+ NOCOMPRESS LOGGING                                                                                                                                                                                                             
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXE                                                                                                                                                                          
+XTENTS 2147483645                                                                                                                                                                                                               
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUP                                                                                                                                                                                      
+S 1                                                                                                                                                                                                                             
+
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CAC                                                                                                                                                                        
+HE DEFAULT)                                                                                                                                                                                                                     
+  TABLESPACE "DIP_M05_01"                                                                                                                                                                                                       
+                                                                                                                                                                                                                                
+
+Prueba terminada, [enter] limpieza
+
+Eliminando tabla t03_row_chaining
+
+Table dropped.
+
+Eliminando TS
+Connected.
+
+                                                                                                                                                                                                                                
+
+
+Tablespace dropped.

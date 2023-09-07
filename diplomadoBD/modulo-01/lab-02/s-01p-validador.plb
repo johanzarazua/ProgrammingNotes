@@ -1,0 +1,52 @@
+
+Prompt Proporcionar el password de SYS
+connect sys as sysdba
+set serveroutput on
+
+@s-00-funciones-validacion.plb
+
+create or replace procedure spv_valida_datos_instancia wrapped 
+a000000
+369
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+abcd
+7
+6af 3bd
+lmuRxBj1taB3argu5yxSEzjW3A0wgwLDTCCDfI5Vx2P5B/h8+srpiH4Sk5hcnnDyoCFg3A7Q
+96FHJz7bR72NewhkkraSxsnB1jmOEWbz/ZrHz7m+sUFeZdS3RJXIIE+MF6cYRum91ZEc9FaW
+VG+ZOUi4EER8h1CpaU701Nsob4d9d9Wm+zOlVzaxKObGLIaFvxxLKu81VPCndTnRCBMgIUww
+QVyoKt/1EVN1gGsK7yrHXdzYHbMdWHCZrmhQ3f1GgBx/zVUSkV0wQzkQuOER1xPdPmwoS+Ro
+S5M7yAUeCvO8vxC2ez3ezGL5V3jQyEKQVc+I1yYeB/M6VYSuZZbKC/3Ln8bWMxInLGW7mp9/
+EQ9cLQWfBiqEjD+dKKEhQa2ggM3vt2nxzzF+vDR9W0FBvD+dMeMTeoBzuVVo5Uo0uscm/k1I
+VVYtR2cUFxTqVlzNRe5R8y33+oBmWdeYkzBmnmsCcS/M/hiv6nRD0NoCwq3wjTsbUNwYzXAR
+ZALt67nK9hGy+LhbHcqgJhVCcMXaqS//S6oRze+B/iZxLdJxHon8BQBM2qntpsQ6FYhs0PPo
+iVAcm0PJY1fkJnUNAz7WszaibwxjMHFa/YXlj1haXbIO/oncM4O790R6msCVWY+u970QuV5B
+mqT4x1BdrqBjgRoBA7PBNvvoOCiyqrSaijdC8+ThJyyQczPlMsI8TaIM4sAIM+wyXZVpv9Z6
+/YVDOSb+RV8HgdEulgYMO7L6PYHektZlwZLf/VQHqKPCw+UrN3DZjh0QRWb3oPL1Rev4tefP
+k+MN41glbNVXuGMhjN8RCl3swSPkFY+74tLYep8+bQz9x0qDIRgeBfmaBQotv2plTPinnd8w
+dCtWwatELQZ7XxeLpfIErmB5kEXH9Vo9etU51iMpR0yJdVX1YUVJQmY9gLHj3iHHKB70HBk/
+kij73sYR
+
+/
+show errors
+exec spv_print_header
+exec spv_valida_datos_instancia
+
+Prompt Eliminando procedimientos de validación
+exec spv_remove_procedures
+
+Prompt Listo!
+exit

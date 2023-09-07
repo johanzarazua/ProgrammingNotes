@@ -1,0 +1,16 @@
+creando PDB con rutas particulares
+conectar a root
+Connected.
+
+                                                                                                                             
+
+creando PDB jzrdip03_s3
+
+Pluggable database created.
+
+Revisar datafiles generados en ORACLE_BASE/oradata [enter] para continuar
+
+Limpieza
+
+Pluggable database dropped.
+

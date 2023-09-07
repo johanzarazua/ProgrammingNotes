@@ -1,0 +1,249 @@
+1. Conectando como sys
+Connected.
+
+                                                                                                                                                                                                                  
+
+Activando la papelera de reciclaje
+
+Session altered.
+
+Vericando contenido de la papelera
+SP2-0158: unknown COLUMN option "fromat"
+
+no rows selected
+
+2. Conectando con el usuario user06
+Connected.
+
+                                                                                                                                                                                                                  
+
+Creando la tabla
+
+Table created.
+
+Insertando datos
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Commit complete.
+
+Mostrando datos de la tabla
+
+        ID DATOS                                                                                                                                                                                                  
+---------- ----------                                                                                                                                                                                             
+         1 dato1                                                                                                                                                                                                  
+         2 dato2                                                                                                                                                                                                  
+         3 dato3                                                                                                                                                                                                  
+         4 dato4                                                                                                                                                                                                  
+
+3. Eliminado la tabla
+
+Table dropped.
+
+
+Commit complete.
+
+Verificando que se eliminó
+select * from fb_drop
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+4. Mostrando contenido de recyclebin
+
+OBJECT_NAME                    ORIGINAL_NAME                                                                                                                                                                      
+------------------------------ --------------------------------------------------------------------------------------------------------------------------------                                                   
+BIN$8+2TGwkj117gUwEAAH+5HA==$0 FB_VERSION                                                                                                                                                                         
+BIN$8+2YroUS2JbgUwEAAH8tCg==$0 FB_VERSION                                                                                                                                                                         
+BIN$8+6AIGqp7PjgUwEAAH9lBQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6Paaxi8cngUwEAAH+/oQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6LXLWM73DgUwEAAH/DAQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6LXLWN73DgUwEAAH/DAQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6RFQWn8j3gUwEAAH9WNg==$0 FB_DROP                                                                                                                                                                            
+
+7 rows selected.
+
+5. Consultando el contenido del object_name
+Enter value for object_name: BIN$8+6RFQWn8j3gUwEAAH9WNg==$0
+old   1: select * from "&object_name"
+new   1: select * from "BIN$8+6RFQWn8j3gUwEAAH9WNg==$0"
+
+        ID DATOS                                                                                                                                                                                                  
+---------- ----------                                                                                                                                                                                             
+         1 dato1                                                                                                                                                                                                  
+         2 dato2                                                                                                                                                                                                  
+         3 dato3                                                                                                                                                                                                  
+         4 dato4                                                                                                                                                                                                  
+
+6. Recuperando tabla eliminada
+
+Flashback complete.
+
+Verificando tabla recuperada
+
+        ID DATOS                                                                                                                                                                                                  
+---------- ----------                                                                                                                                                                                             
+         1 dato1                                                                                                                                                                                                  
+         2 dato2                                                                                                                                                                                                  
+         3 dato3                                                                                                                                                                                                  
+         4 dato4                                                                                                                                                                                                  
+
+7. Eliminando tabla nuevamente
+
+Table dropped.
+
+
+Commit complete.
+
+Verificando que se eliminó
+select * from fb_drop
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+8 Creando nuevamente la tabla con nuevos datos.
+Creando la tabla
+
+Table created.
+
+Insertando datos
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Commit complete.
+
+Mostrando datos de la tabla
+
+        ID DATOS                                                                                                                                                                                                  
+---------- ----------                                                                                                                                                                                             
+         5 dato5                                                                                                                                                                                                  
+         6 dato6                                                                                                                                                                                                  
+         7 dato7                                                                                                                                                                                                  
+         8 dato8                                                                                                                                                                                                  
+
+9. Mostrando contenido de recyclebin
+
+OBJECT_NAME                    ORIGINAL_NAME                                                                                                                                                                      
+------------------------------ ---------------                                                                                                                                                                    
+BIN$8+2TGwkj117gUwEAAH+5HA==$0 FB_VERSION                                                                                                                                                                         
+BIN$8+2YroUS2JbgUwEAAH8tCg==$0 FB_VERSION                                                                                                                                                                         
+BIN$8+6AIGqp7PjgUwEAAH9lBQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6Paaxi8cngUwEAAH+/oQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6LXLWM73DgUwEAAH/DAQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6LXLWN73DgUwEAAH/DAQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6RFQWo8j3gUwEAAH9WNg==$0 FB_DROP                                                                                                                                                                            
+
+7 rows selected.
+
+10. Eliminando la tabla nueva
+
+Table dropped.
+
+
+Commit complete.
+
+Verificando que se eliminó
+select * from fb_drop
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+11. Mostrando contenido de recyclebin
+
+OBJECT_NAME                    ORIGINAL_NAME                                                                                                                                                                      
+------------------------------ ---------------                                                                                                                                                                    
+BIN$8+2TGwkj117gUwEAAH+5HA==$0 FB_VERSION                                                                                                                                                                         
+BIN$8+2YroUS2JbgUwEAAH8tCg==$0 FB_VERSION                                                                                                                                                                         
+BIN$8+6AIGqp7PjgUwEAAH9lBQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6Paaxi8cngUwEAAH+/oQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6LXLWM73DgUwEAAH/DAQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6LXLWN73DgUwEAAH/DAQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6RFQWo8j3gUwEAAH9WNg==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6RFQWp8j3gUwEAAH9WNg==$0 FB_DROP                                                                                                                                                                            
+
+8 rows selected.
+
+12. Recuperando ambas tablas y renombrarndolas
+fb_drop_1
+Enter value for object_name: BIN$8+6RFQWp8j3gUwEAAH9WNg==$0
+old   1: flashback table "&object_name" to before drop rename to fb_drop_1
+new   1: flashback table "BIN$8+6RFQWp8j3gUwEAAH9WNg==$0" to before drop rename to fb_drop_1
+
+Flashback complete.
+
+consultando la tabla recuperada
+
+        ID DATOS                                                                                                                                                                                                  
+---------- ----------                                                                                                                                                                                             
+         5 dato5                                                                                                                                                                                                  
+         6 dato6                                                                                                                                                                                                  
+         7 dato7                                                                                                                                                                                                  
+         8 dato8                                                                                                                                                                                                  
+
+fb_drop_2
+Enter value for object_name: BIN$8+6RFQWo8j3gUwEAAH9WNg==$0
+old   1: flashback table "&object_name" to before drop rename to fb_drop_2
+new   1: flashback table "BIN$8+6RFQWo8j3gUwEAAH9WNg==$0" to before drop rename to fb_drop_2
+
+Flashback complete.
+
+consultando la tabla recuperada
+
+        ID DATOS                                                                                                                                                                                                  
+---------- ----------                                                                                                                                                                                             
+         1 dato1                                                                                                                                                                                                  
+         2 dato2                                                                                                                                                                                                  
+         3 dato3                                                                                                                                                                                                  
+         4 dato4                                                                                                                                                                                                  
+
+13. Deshabilitando papelera
+
+Session altered.
+
+14. Eliminando tablas y verifcando su eliminacion
+
+Table dropped.
+
+
+Table dropped.
+
+
+Commit complete.
+
+Mostrando contenido de recyclebin
+
+OBJECT_NAME                    ORIGINAL_NAME                                                                                                                                                                      
+------------------------------ ---------------                                                                                                                                                                    
+BIN$8+2TGwkj117gUwEAAH+5HA==$0 FB_VERSION                                                                                                                                                                         
+BIN$8+2YroUS2JbgUwEAAH8tCg==$0 FB_VERSION                                                                                                                                                                         
+BIN$8+6AIGqp7PjgUwEAAH9lBQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6Paaxi8cngUwEAAH+/oQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6LXLWM73DgUwEAAH/DAQ==$0 FB_DROP                                                                                                                                                                            
+BIN$8+6LXLWN73DgUwEAAH/DAQ==$0 FB_DROP                                                                                                                                                                            
+
+6 rows selected.
+
+Listo!!!

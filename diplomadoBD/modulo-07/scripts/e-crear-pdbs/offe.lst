@@ -1,0 +1,6 @@
+drop pluggable database jzrdip03_appc1 including datafiles
+*
+ERROR at line 1:
+ORA-65011: Pluggable database JZRDIP03_APPC1 does not exist. 
+
+

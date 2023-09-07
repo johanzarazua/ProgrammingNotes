@@ -1,0 +1,132 @@
+Creando proxy PDB
+Iniciando jzrdip03
+
+Iniciando jzrdip04
+
+Connected.
+
+                                                                                                                                                                       
+
+Creando un usuario común
+
+User created.
+
+
+Grant succeeded.
+
+Abriendo pdb
+alter pluggable database jzrdip03_s2 open read write
+*
+ERROR at line 1:
+ORA-65019: pluggable database JZRDIP03_S2 already open 
+
+
+
+Session altered.
+
+Creando tablespace para guardar datos de prueba
+
+Tablespace created.
+
+Creando usuario de prueba
+
+User created.
+
+
+Grant succeeded.
+
+Creando tabla test_proxy
+
+Table created.
+
+Insertando datos de prueba
+
+1 row created.
+
+
+Commit complete.
+
+
+        ID                                                                                                                                                             
+----------                                                                                                                                                             
+         1                                                                                                                                                             
+
+Revisar datos [enter]
+
+COnectando a jzrdip04 para crear liga y proxy pdb
+Connected.
+
+                                                                                                                                                                       
+
+
+Database link created.
+
+Creando proxy pdb
+
+Pluggable database created.
+
+Abrir la proxy pdb [enter]
+
+
+Pluggable database altered.
+
+accediendo a jzrdip03_s2 a través de ka proxy
+Connected.
+
+                                                                                                                                                                       
+
+Mostrabdo datos desde proxy
+
+        ID                                                                                                                                                             
+----------                                                                                                                                                             
+         1                                                                                                                                                             
+
+Insertando desde proxy
+
+1 row created.
+
+
+Commit complete.
+
+Validando en jzrdip03_s2
+Connected.
+
+                                                                                                                                                                       
+
+
+        ID                                                                                                                                                             
+----------                                                                                                                                                             
+         2                                                                                                                                                             
+         1                                                                                                                                                             
+
+Analizar resultados [enter]
+
+
+Session altered.
+
+
+User dropped.
+
+
+Session altered.
+
+
+Tablespace dropped.
+
+
+User dropped.
+
+LImpieza en jzrdip04
+Connected.
+
+                                                                                                                                                                       
+
+
+Pluggable database altered.
+
+
+Pluggable database dropped.
+
+
+Database link dropped.
+

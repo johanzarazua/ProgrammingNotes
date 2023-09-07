@@ -1,0 +1,9 @@
+-- el grupo en el que se esta escribiendo es el de status current, en este caso el 5
+
+-- gpo4: 139
+-- gpo5: 140
+-- gpo6: 0
+
+-- el menor es 0
+
+--indica el SCN antes y despues de los cambios, es decir el primer SCN y el ultimo SCN

@@ -1,0 +1,151 @@
+conectando como sys
+Connected.
+
+                                                                                                                                                                                                                  
+
+1. Creando al usuario user06
+old   1: create user &eUser identified by &eUser default tablespace users quota unlimited on users
+new   1: create user user06 identified by user06 default tablespace users quota unlimited on users
+
+User created.
+
+old   1: grant dba to &eUser
+new   1: grant dba to user06
+
+Grant succeeded.
+
+2. Conectandose como user06
+Connected.
+
+                                                                                                                                                                                                                  
+
+Crenado la tabla fb_query
+
+Table created.
+
+3. Insertando datos . . .
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Commit complete.
+
+Mostrando datos de la tabla
+
+        ID NAME                                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                             
+         1 dato1                                                                                                                                                                                                  
+         2 dato2                                                                                                                                                                                                  
+         3 dato3                                                                                                                                                                                                  
+
+
+PL/SQL procedure successfully completed.
+
+4. Obteniendo SCN y marca de tiempo
+
+FECHAHORA1                                                                                                                                                                                                        
+-------------------                                                                                                                                                                                               
+04-02-2023 22:21:00                                                                                                                                                                                               
+
+
+      SCN1                                                                                                                                                                                                        
+----------                                                                                                                                                                                                        
+   5678720                                                                                                                                                                                                        
+
+5. Modificando un dato en la tabla
+
+1 row updated.
+
+
+Commit complete.
+
+
+        ID NAME                                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                             
+         1 cambio1                                                                                                                                                                                                
+         2 dato2                                                                                                                                                                                                  
+         3 dato3                                                                                                                                                                                                  
+
+
+PL/SQL procedure successfully completed.
+
+6. Obteniendo SCN y marca de tiempo nuevamente
+
+FECHAHORA2                                                                                                                                                                                                        
+-------------------                                                                                                                                                                                               
+04-02-2023 22:21:06                                                                                                                                                                                               
+
+
+      SCN2                                                                                                                                                                                                        
+----------                                                                                                                                                                                                        
+   5678724                                                                                                                                                                                                        
+
+7. Eliminando un registro de la tabla
+
+1 row deleted.
+
+
+Commit complete.
+
+
+        ID NAME                                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                             
+         2 dato2                                                                                                                                                                                                  
+         3 dato3                                                                                                                                                                                                  
+
+
+PL/SQL procedure successfully completed.
+
+8. Obteniendo SCN y marca de tiempo nuevamente
+
+FECHAHORA3                                                                                                                                                                                                        
+-------------------                                                                                                                                                                                               
+04-02-2023 22:21:11                                                                                                                                                                                               
+
+
+      SCN3                                                                                                                                                                                                        
+----------                                                                                                                                                                                                        
+   5678729                                                                                                                                                                                                        
+
+9. Mostrando informacion de diferentes momentos
+Enter value for fechahora1: 04-02-2023 22:21:00
+old   1: select * from fb_query as of timestamp to_timestamp('&fechaHora1', 'dd-mm-yyyy hh24:mi:ss')
+new   1: select * from fb_query as of timestamp to_timestamp('04-02-2023 22:21:00', 'dd-mm-yyyy hh24:mi:ss')
+
+        ID NAME                                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                             
+         1 dato1                                                                                                                                                                                                  
+         2 dato2                                                                                                                                                                                                  
+         3 dato3                                                                                                                                                                                                  
+
+Enter value for scn3: 5678729
+old   1: select * from fb_query as of scn &scn3
+new   1: select * from fb_query as of scn 5678729
+
+        ID NAME                                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                             
+         2 dato2                                                                                                                                                                                                  
+         3 dato3                                                                                                                                                                                                  
+
+10. Recuperando el dato eliminado
+Enter value for scn2: 5678724
+old   2:   select * from fb_query as of scn &scn2 where id = 1
+new   2:   select * from fb_query as of scn 5678724 where id = 1
+
+1 row created.
+
+Mostrando informacion recuperada
+
+        ID NAME                                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                             
+         2 dato2                                                                                                                                                                                                  
+         3 dato3                                                                                                                                                                                                  
+         1 cambio1                                                                                                                                                                                                
+
+Listo !!!

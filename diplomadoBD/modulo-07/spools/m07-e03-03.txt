@@ -1,0 +1,170 @@
+crear clon de una PDB, hacer plug en otra CDB - manual
+inciando jzrdip03
+
+conectando a jzrdip03 (root)
+Connected.
+
+                                                                                                                                                                                                                       
+
+cerrando la pdb
+
+Pluggable database altered.
+
+haciendo unplug de jzrdip03_s1
+
+Pluggable database altered.
+
+mostrando datos de las PDBs
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED                                                                                                                                                        
+---------- ------------------------------ ---------- ----------                                                                                                                                                        
+         2 PDB$SEED                       READ ONLY  NO                                                                                                                                                                
+         3 JZRDIP03_S1                    MOUNTED                                                                                                                                                                      
+         4 JZRDIP03_S2                    READ WRITE NO                                                                                                                                                                
+mostrando datos de dba_pdbs
+
+    PDB_ID PDB_NAME                                                                                                                         STATUS                                                                     
+---------- -------------------------------------------------------------------------------------------------------------------------------- ----------                                                                 
+         3 JZRDIP03_S1                                                                                                                      UNPLUGGED                                                                  
+         2 PDB$SEED                                                                                                                         NORMAL                                                                     
+         4 JZRDIP03_S2                                                                                                                      NORMAL                                                                     
+
+Analizar [Enter] para continuar
+
+eliminar la PDB manteniendo sus datafiles
+
+Pluggable database dropped.
+
+Mover la PDB a su nuevo destino a /home/oracle/backups/jzrdip03_s1
+no olvidar actualizar las rutas en el xml
+[Enter] para continuar
+
+Hacer plug en JZRDIP04
+deteniendo jzrdip03
+
+iniciando jzrdip04
+
+ingresando a jzrdip04
+Connected.
+
+                                                                                                                                                                                                                                                                    
+
+
+CON_ID                                                                                                                                                                                                                                                              
+------------------------------                                                                                                                                                                                                                                      
+1                                                                                                                                                                                                                                                                   
+
+CON_NAME                                                                                                                                                                                                                                                            
+------------------------------                                                                                                                                                                                                                                      
+CDB$ROOT                                                                                                                                                                                                                                                            
+1. validar compatibilidad
+COMPATIBLE                                                                                                                                                                                                                                                          
+
+PL/SQL procedure successfully completed.
+
+Validar resultados [Enter] para continuar
+
+agregar la nueva PDB
+
+Pluggable database created.
+
+MOstrando datos de las PDBs
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED                                                                                                                                                                                                     
+---------- ------------------------------ ---------- ----------                                                                                                                                                                                                     
+         2 PDB$SEED                       READ ONLY  NO                                                                                                                                                                                                             
+         3 JZRDIP04_S1                    MOUNTED                                                                                                                                                                                                                   
+         4 JZRDIP04_S2                    MOUNTED                                                                                                                                                                                                                   
+         5 JZRDIP04_M3                    MOUNTED                                                                                                                                                                                                                   
+mostrando datos de dba_pdbs
+
+    PDB_ID PDB_NAME                                                                                                                         STATUS                                                                                                                  
+---------- -------------------------------------------------------------------------------------------------------------------------------- ----------                                                                                                              
+         3 JZRDIP04_S1                                                                                                                      NORMAL                                                                                                                  
+         2 PDB$SEED                                                                                                                         NORMAL                                                                                                                  
+         4 JZRDIP04_S2                                                                                                                      NORMAL                                                                                                                  
+         5 JZRDIP04_M3                                                                                                                      NEW                                                                                                                     
+
+Analizar resultados [Enter] para continuar
+
+Abriendo PDB migrada jzrdip04_m3
+
+Pluggable database altered.
+
+conectando a jzrdip04_m3
+
+Session altered.
+
+mostrando datos de la PDB
+
+CON_ID                                                                                                                                                                                                                                                              
+------------------------------                                                                                                                                                                                                                                      
+5                                                                                                                                                                                                                                                                   
+
+CON_NAME                                                                                                                                                                                                                                                            
+------------------------------                                                                                                                                                                                                                                      
+JZRDIP04_M3                                                                                                                                                                                                                                                         
+Analizar resultado [Enter] para comenzar con la limpieza
+
+Regresando a JZRDIP04 (root)
+
+Session altered.
+
+cerrando PDB jzrdip04_m3
+
+Pluggable database altered.
+
+haciendo unplug de jzrdip04_m3
+
+Pluggable database altered.
+
+haciendo drop jzrdip04_m3
+
+Pluggable database dropped.
+
+Mover la PDB a su nuevo destino a /home/oracle/backups/jzrdip04_m3
+no olvidar actualizar las rutas en el xml
+[Enter] para continuar
+
+deteniendo jzrdip04
+
+iniciando jzrdip03
+
+ingresando a jzrdip03
+Connected.
+
+                                                                                                                                                                                                                       
+
+
+CON_ID                                                                                                                                                                                                                 
+------------------------------                                                                                                                                                                                         
+1                                                                                                                                                                                                                      
+
+CON_NAME                                                                                                                                                                                                               
+------------------------------                                                                                                                                                                                         
+CDB$ROOT                                                                                                                                                                                                               
+1. validar compatibilidad
+COMPATIBLE                                                                                                                                                                                                             
+
+PL/SQL procedure successfully completed.
+
+Validar resultados [Enter] para continuar
+
+agregar la nueva PDB
+
+Pluggable database created.
+
+Abriendo PDB restaurada
+
+Pluggable database altered.
+
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED                                                                                                                                                        
+---------- ------------------------------ ---------- ----------                                                                                                                                                        
+         2 PDB$SEED                       READ ONLY  NO                                                                                                                                                                
+         3 JZRDIP03_S1                    READ WRITE NO                                                                                                                                                                
+         4 JZRDIP03_S2                    READ WRITE NO                                                                                                                                                                
+Analizar resultados [Enter] para borrar backups!
+
+
+

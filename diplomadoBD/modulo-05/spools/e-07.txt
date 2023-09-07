@@ -1,0 +1,59 @@
+idle> @e-07-tablespace-usr.sql
+conectando como sys
+Connected.
+
+                                                                                                     
+
+mostrando datos del TS usando database_properties.
+
+PROPERTY_NAME                  PROPERTY_VALUE                                                        
+------------------------------ ------------------------------                                        
+DEFAULT_PERMANENT_TABLESPACE   USERS                                                                 
+DEFAULT_TEMP_TABLESPACE        TEMPTS1                                                               
+
+mostrando datos de los tablespaces usando user_users JOHAN05
+Connected.
+
+                                                                                                     
+
+
+DEFAULT_TABLESPACE             TEMPORARY_TABLESPACE           LOCAL_TEMP_TABLESPACE                  
+------------------------------ ------------------------------ ------------------------------         
+USERS                          TEMPTS1                        TEMPTS1                                
+
+mostrando TS undo empleado por todos los usuarios
+Connected.
+
+                                                                                                     
+
+
+NAME                                 TYPE        VALUE                                               
+------------------------------------ ----------- ------------------------------                      
+undo_tablespace                      string      UNDOTBS1                                            
+mostrando quota de almacenamiento para los usuarios
+
+TABLESPACE_NAME                USERNAME                         QUOTA_MB     BLOCKS MAX_BLOCKS       
+------------------------------ ------------------------------ ---------- ---------- ----------       
+SYSAUX                         AUDSYS                                  0          0         -1       
+SYSTEM                         OUTLN                               .5625         72         -1       
+SYSAUX                         DBSFWUSER                               0          0         -1       
+SYSAUX                         GSMADMIN_INTERNAL                    .875        112         -1       
+SYSAUX                         APPQOSSYS                               0          0         -1       
+SYSAUX                         GGSYS                                   0          0         -1       
+USERS                          USER03IMC                               6        768         -1       
+USERS                          USER04MONITOR                       .0625          8         -1       
+USERS                          WORKER_M03_1                     138.9375      17784         -1       
+USERS                          WORKER_M03_2                     138.9375      17784         -1       
+USERS                          WORKER_M03_3                     138.9375      17784         -1       
+USERS                          JOHAN05                            31.625       4048         -1       
+DIP_M05_01                     JOHAN05                                 0          0         -1       
+
+13 rows selected.
+
+mostrando los datos del TS temp
+
+TABLESPACE_NAME                TS_SIZE_MB ALLOCATED_SPACE_MB FREE_SPACE_MB                           
+------------------------------ ---------- ------------------ -------------                           
+TEMPTS1                                20                 11            16                           
+
+sys@jzrdip02> exit

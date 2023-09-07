@@ -1,0 +1,87 @@
+idle> @e-05-extensiones.sql
+consultando extentensiones, conectando como sys
+Connected.
+
+                                                                                                                                                                              
+
+old   2:   execute immediate 'drop table &p_user..t04_ejemplo_extensiones';
+new   2:   execute immediate 'drop table JOHAN05.t04_ejemplo_extensiones';
+
+PL/SQL procedure successfully completed.
+
+creando tabla prueba.
+old   1: create table &p_user..t04_ejemplo_extensiones(
+new   1: create table JOHAN05.t04_ejemplo_extensiones(
+
+Table created.
+
+consultando datos de las extensiones
+old  11:       owner = '&p_user'
+new  11:       owner = 'JOHAN05'
+
+no rows selected
+
+insertando los 100 registros
+old   3:     insert into &p_user..t04_ejemplo_extensiones values ('A');
+new   3:     insert into JOHAN05.t04_ejemplo_extensiones values ('A');
+
+PL/SQL procedure successfully completed.
+
+
+Commit complete.
+
+consultando datos de las extensiones despues de insertar
+old  11:       owner = '&p_user'
+new  11:       owner = 'JOHAN05'
+
+SEGMENT_TYPE       TABLESPACE_NAME                   FILE_ID  EXTENT_ID   BLOCK_ID EXTENT_SIZE_KB     BLOCKS                                                                  
+------------------ ------------------------------ ---------- ---------- ---------- -------------- ----------                                                                  
+TABLE              USERS                                   4          0      58104             64          8                                                                  
+TABLE              USERS                                   4          1      58112             64          8                                                                  
+TABLE              USERS                                   4          2      58120             64          8                                                                  
+
+mostrando estado de los bloques
+old  18:     '&p_user',
+new  18:     'JOHAN05',
+Mostrando valores de los bloques                                                                                                                                              
+v_unformatted_blocks = 0                                                                                                                                                      
+v_unformatted_bytes = 0                                                                                                                                                       
+v_fs1_blocks = 0                                                                                                                                                              
+v_fs1_bytes = 0                                                                                                                                                               
+v_fs2_blocks = 0                                                                                                                                                              
+v_fs2_bytes = 0                                                                                                                                                               
+v_fs3_blocks = 1                                                                                                                                                              
+v_fs3_bytes = 8192                                                                                                                                                            
+v_fs4_blocks = 5                                                                                                                                                              
+v_fs4_bytes = 40960                                                                                                                                                           
+v_full_blocks = 14                                                                                                                                                            
+v_full_bytes = 114688                                                                                                                                                         
+
+PL/SQL procedure successfully completed.
+
+eliminando 100 registros
+old   2:   execute immediate 'truncate table &p_user..t04_ejemplo_extensiones';
+new   2:   execute immediate 'truncate table JOHAN05.t04_ejemplo_extensiones';
+
+PL/SQL procedure successfully completed.
+
+mostrando estado de los bloques desoues de eliminar
+old  18:     '&p_user',
+new  18:     'JOHAN05',
+Mostrando valores de los bloques                                                                                                                                              
+v_unformatted_blocks = 0                                                                                                                                                      
+v_unformatted_bytes = 0                                                                                                                                                       
+v_fs1_blocks = 0                                                                                                                                                              
+v_fs1_bytes = 0                                                                                                                                                               
+v_fs2_blocks = 0                                                                                                                                                              
+v_fs2_bytes = 0                                                                                                                                                               
+v_fs3_blocks = 0                                                                                                                                                              
+v_fs3_bytes = 0                                                                                                                                                               
+v_fs4_blocks = 0                                                                                                                                                              
+v_fs4_bytes = 0                                                                                                                                                               
+v_full_blocks = 0                                                                                                                                                             
+v_full_bytes = 0                                                                                                                                                              
+
+PL/SQL procedure successfully completed.
+
+sys@jzrdip02> exit

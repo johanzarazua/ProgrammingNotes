@@ -1,0 +1,71 @@
+Inciando JZRDIP03
+
+Inciando JZRDIP04
+
+Inciando JZRDIP04
+
+creando un usuario Non CDB
+Connected.
+
+                                                                                                                                                                                                                       
+
+alter system set encryption wallet open identified by "wallet_password"
+*
+ERROR at line 1:
+ORA-28354: Encryption wallet, auto login wallet, or HSM is already open 
+
+
+
+User created.
+
+
+Grant succeeded.
+
+conectando a JZRDIP04
+Connected.
+
+                                                                                                                                                                                                                       
+
+creando DB Link
+
+Database link created.
+
+
+System altered.
+
+creando pdb
+
+Pluggable database created.
+
+abriendo nueva pdb
+
+Warning: PDB altered with errors.
+
+
+    CON_ID CON_NAME                       OPEN MODE  RESTRICTED                                                                                                                                                        
+---------- ------------------------------ ---------- ----------                                                                                                                                                        
+         2 PDB$SEED                       READ ONLY  NO                                                                                                                                                                
+         3 JZRDIP04_S1                    MOUNTED                                                                                                                                                                      
+         4 JZRDIP04_S2                    MOUNTED                                                                                                                                                                      
+         5 JZRDIP04_M4                    READ WRITE YES                                                                                                                                                               
+Analizar resultado [Enter] para realizar limpieza.
+
+borrando PDB
+
+Pluggable database altered.
+
+
+Pluggable database dropped.
+
+borrando liga
+
+Database link dropped.
+
+borrando usuario, cambiando a JZRDIP03
+Connected.
+
+                                                                                                                                                                                                                       
+
+
+User dropped.
+

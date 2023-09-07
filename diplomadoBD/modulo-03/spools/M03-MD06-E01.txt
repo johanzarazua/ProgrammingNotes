@@ -1,0 +1,90 @@
+idle> @scripts/s-13-pga-stats.sql
+mostrando datos estadisticos de la PGA, como sysdba
+Connected.
+
+                                                                                                                                                                   
+
+mostrando estadisticas
+
+NAME                                                             UNIT           VALUE_MB                                                                           
+---------------------------------------------------------------- ------------ ----------                                                                           
+bytes processed                                                  MB           845.926758                                                                           
+maximum PGA allocated                                            MB           437.171875                                                                           
+PGA memory freed back to OS                                      MB               350.75                                                                           
+aggregate PGA target parameter                                   MB                  268                                                                           
+total PGA allocated                                              MB           225.717773                                                                           
+total PGA inuse                                                  MB           169.754883                                                                           
+cache hit percentage                                             percent             100                                                                           
+aggregate PGA auto target                                        MB           90.1757813                                                                           
+global memory bound                                              MB           53.5996094                                                                           
+total freeable PGA memory                                        MB                18.25                                                                           
+maximum PGA used for auto workareas                              MB                11.75                                                                           
+maximum PGA used for manual workareas                            MB           1.01757813                                                                           
+extra bytes read/written                                         MB                    0                                                                           
+total PGA used for manual workareas                              MB                    0                                                                           
+total PGA used for auto workareas                                MB                    0                                                                           
+MGA allocated (under PGA)                                        MB                    0                                                                           
+maximum MGA allocated                                            MB                    0                                                                           
+
+17 rows selected.
+
+analizar resultados, [Enter] para continuar
+
+creando usaurio user03pga
+
+User created.
+
+
+Grant succeeded.
+
+mostrando datos del server process para esta session
+
+SOSID           USERNAME        PROGRAM                                  PGA_USED_MEM_MB PGA_ALLOC_MEM_MB PGA_FREEABLE_MEM_MB PGA_MAX_MEM_MB                       
+--------------- --------------- ---------------------------------------- --------------- ---------------- ------------------- --------------                       
+41555           johanzr         oracle@pc-jzr.fi.unam (TNS V1-V3)             2.26476765       3.78769398               .8125     4.41269398                       
+
+analizar resultados, [Enter] para continuar
+
+creando copia de all_objects
+
+Table created.
+
+mostrando datos del server process nuevamente
+
+SOSID           USERNAME        PROGRAM                                  PGA_USED_MEM_MB PGA_ALLOC_MEM_MB PGA_FREEABLE_MEM_MB PGA_MAX_MEM_MB                       
+--------------- --------------- ---------------------------------------- --------------- ---------------- ------------------- --------------                       
+41555           johanzr         oracle@pc-jzr.fi.unam (TNS V1-V3)             5.55119038       6.95892811                .875      36.350194                       
+
+analizar resultados, ¿Que diferencias existen? [Enter] para continuar
+
+mostrando estadisticas globales de la PGA nuevamente
+
+NAME                                                             UNIT           VALUE_MB                                                                           
+---------------------------------------------------------------- ------------ ----------                                                                           
+bytes processed                                                  MB           886.109375                                                                           
+maximum PGA allocated                                            MB           437.171875                                                                           
+PGA memory freed back to OS                                      MB               380.75                                                                           
+aggregate PGA target parameter                                   MB                  268                                                                           
+total PGA allocated                                              MB           229.826172                                                                           
+total PGA inuse                                                  MB           173.366211                                                                           
+cache hit percentage                                             percent             100                                                                           
+aggregate PGA auto target                                        MB           85.4384766                                                                           
+global memory bound                                              MB           53.5996094                                                                           
+total freeable PGA memory                                        MB              18.5625                                                                           
+maximum PGA used for manual workareas                            MB           12.2265625                                                                           
+maximum PGA used for auto workareas                              MB                11.75                                                                           
+extra bytes read/written                                         MB                    0                                                                           
+total PGA used for manual workareas                              MB                    0                                                                           
+total PGA used for auto workareas                                MB                    0                                                                           
+MGA allocated (under PGA)                                        MB                    0                                                                           
+maximum MGA allocated                                            MB                    0                                                                           
+
+17 rows selected.
+
+comparar resultados con la primera consulta, [Enter] para continuar
+
+realizando limpieza
+
+User dropped.
+
+sys@jzrdip02> exit

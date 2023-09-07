@@ -1,0 +1,57 @@
+idle> @s-01-processes.sql
+mostrando user processes con instancia detenida
+
+autenticando como sys
+Connected to an idle instance.
+select lower(sys_context('userenv','current_user')
+*
+ERROR at line 1:
+ORA-01034: ORACLE not available
+Process ID: 0
+Session ID: 0 Serial number: 0 
+
+
+mostrando nuevamente user processes
+Que pasara? [Enter] para continuar
+
+
+mostrando proceso del listener
+
+[Enter] para continuar
+
+levantando la instancia en modo nomount
+ORACLE instance started.
+
+Total System Global Area  805303360 bytes                                                                                                                          
+Fixed Size                  8901696 bytes                                                                                                                          
+Variable Size             562036736 bytes                                                                                                                          
+Database Buffers          121634816 bytes                                                                                                                          
+Redo Buffers                7872512 bytes                                                                                                                          
+In-Memory Area            104857600 bytes                                                                                                                          
+mostrando proceso nuevamente, instancia en modo nomount
+Que pasara? [Enter] para continuar
+
+
+abriendo BD
+
+Database altered.
+
+
+Database altered.
+
+cerrando sesion
+Disconnected from Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+conectando como sysdba
+Connected.
+
+                                                                                                                                                                   
+
+mostrando los precesos de la nueva conexion
+
+Analizar respuetas, anotar IDs de procesos y compararlos con los obtenidos en SQL Developer
+sys@jzrdip02> !ps -ef | grep -e sqlplus -e "LOCAL=YES" -e listener | grep -v grep
+
+sys@jzrdip02> !ps -ef | grep -e sqlplus -e "LOCAL=YES" -e LISTENER | grep -v grep
+
+sys@jzrdip02> exit

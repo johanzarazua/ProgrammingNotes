@@ -1,0 +1,275 @@
+CReando aplication contaniner en JZRDIP03
+
+
+Conectando a jzrdip03
+Connected.
+
+                                                                                                                  
+
+Crear aplication container jzrdip03_appc1
+
+Pluggable database created.
+
+abriendo jzrdip03_appc1
+
+Pluggable database altered.
+
+conextando a jzrdip03_app1
+
+Session altered.
+
+mostrando datos del container
+
+CON_ID                                                                                                            
+------------------------------                                                                                    
+8                                                                                                                 
+
+CON_NAME                                                                                                          
+------------------------------                                                                                    
+JZRDIP03_APPC1                                                                                                    
+Analizar resultados, [Enter] para continuar
+
+crear PDB jzrdip03_appc1_s1
+
+Pluggable database created.
+
+abriendo jzrdip03_appc1_s1
+
+Pluggable database altered.
+
+realizar sync entre pdb y app container
+
+Session altered.
+
+
+Pluggable database altered.
+
+crear un application app1
+
+Session altered.
+
+
+Pluggable database altered.
+
+
+System altered.
+
+creando objetos comunes
+creando TS
+
+Tablespace created.
+
+creando usuario
+
+User created.
+
+
+Grant succeeded.
+
+creando tabla
+
+Table created.
+
+insertando datos
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+termianndo de asociar objetos comunes
+
+Pluggable database altered.
+
+realizar sync entre pdb y app
+
+Session altered.
+
+
+CON_NAME                                                                                                          
+------------------------------                                                                                    
+JZRDIP03_APPC1_S1                                                                                                 
+
+Pluggable database altered.
+
+mostrando datos de objetos comunes
+
+        ID NOMBRE                                                                                                 
+---------- ----------------------------------------                                                               
+         1 Ing. Computacion                                                                                       
+         2 Ing. Petrolera                                                                                         
+         3 Medicina                                                                                               
+
+Analizar resulato [Enter] para continuar
+
+creando  una nueva pdb jzrdip03_appc1_s2
+
+Session altered.
+
+crear PDB jzrdip03_appc1_s2
+
+Pluggable database created.
+
+abrir jzrdip03_appc1_s2
+
+Pluggable database altered.
+
+mostrar datos en jzrdip03_appc1_s2 sin hacer sync
+
+Session altered.
+
+select * from app1_test_user.carrera
+                             *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+Analizar resulato [Enter] para continuar
+
+hacer sync y mostrar datos
+
+Pluggable database altered.
+
+
+        ID NOMBRE                                                                                                 
+---------- ----------------------------------------                                                               
+         1 Ing. Computacion                                                                                       
+         2 Ing. Petrolera                                                                                         
+         3 Medicina                                                                                               
+
+Analizar resulato [Enter] para continuar
+
+GEnerando version 1.1 de jzrdip03_appc1_app1
+
+Session altered.
+
+
+Pluggable database altered.
+
+insertar un nuevo dato
+
+1 row created.
+
+agregando  una nueva columna
+
+Table altered.
+
+agregando procedimiento almacenado
+
+Warning: Procedure created with compilation errors.
+
+Errors for PROCEDURE APP1_TEST_USER.P_ASIGNA_CREDITOS:
+
+LINE/COL ERROR                                                                                                    
+-------- -----------------------------------------------------------------                                        
+2/3      PLS-00103: Encountered the symbol "UPDATE" when expecting one of                                         
+         the following:                                                                                           
+         begin function pragma procedure subtype type <an identifier>                                             
+         <a double-quoted delimited-identifier> current cursor delete                                             
+         exists prior external language                                                                           
+         The symbol "begin" was substituted for "UPDATE" to continue.                                             
+                                                                                                                  
+indicando final de upgrade
+
+Pluggable database altered.
+
+revisar la nueva version
+
+Session altered.
+
+haciendo sync
+
+Pluggable database altered.
+
+invocando sp
+BEGIN app1_test_user.p_asigna_creditos(1); END;
+
+                     *
+ERROR at line 1:
+ORA-06550: line 1, column 22:
+PLS-00905: object APP1_TEST_USER.P_ASIGNA_CREDITOS is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored 
+
+
+mostrando datos de tabla
+
+        ID NOMBRE                                   TOTAL_CREDITOS                                                
+---------- ---------------------------------------- --------------                                                
+         1 Ing. Computacion                                                                                       
+         2 Ing. Petrolera                                                                                         
+         3 Medicina                                                                                               
+         4 Filosofia                                                                                              
+
+Analizar resultado [Enter] para continuar
+
+realizando consultas a DD
+
+Session altered.
+
+
+APP_NAME             APP_VERSIO APP_STATUS                                                                        
+-------------------- ---------- ------------                                                                      
+APP$F57B8EDCF0004E71 1.0        NORMAL                                                                            
+E0530100007F24BC                                                                                                  
+                                                                                                                  
+JZRDIP03_APPC1_APP1  1.1        NORMAL                                                                            
+
+datos de PDBs asociadas a un app container
+
+NAME                                                                                                              
+------------------------------------------------------------------------------------------------------------------
+APP_NAME             APP_VERSIO APP_STATUS                                                                        
+-------------------- ---------- ------------                                                                      
+JZRDIP03_APPC1_S1                                                                                                 
+APP$F57B8EDCF0004E71 1.0        NORMAL                                                                            
+E0530100007F24BC                                                                                                  
+                                                                                                                  
+JZRDIP03_APPC1_S2                                                                                                 
+JZRDIP03_APPC1_APP1  1.0        NORMAL                                                                            
+                                                                                                                  
+JZRDIP03_APPC1_S1                                                                                                 
+JZRDIP03_APPC1_APP1  1.1        NORMAL                                                                            
+                                                                                                                  
+
+Analizar resultados [Enter] para hacer limpieza
+
+
+Session altered.
+
+
+Pluggable database altered.
+
+
+Pluggable database altered.
+
+
+Pluggable database dropped.
+
+
+Pluggable database dropped.
+
+
+Pluggable database altered.
+
+
+Tablespace dropped.
+
+
+User dropped.
+
+
+Pluggable database altered.
+
+
+Session altered.
+
+
+Pluggable database altered.
+
+
+Pluggable database dropped.
+

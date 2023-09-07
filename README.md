@@ -1,1 +1,1 @@
-# ProgrammingNotes
+En este repositorio se encontrarn diferentes apuntes de materias cursadas en la universidad
